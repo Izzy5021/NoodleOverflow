@@ -11,6 +11,8 @@ export default ({ currentUser, logout }) => {
             <div>
                 <Link className="btn" to="/signup">Sign Up</Link>
                 <Link className="btn" to="/login">Log In</Link>
+                <Link className="btn" to="/login">Demo Log In</Link>
+                {/* <button onClick={() => this.handleDemo()}>Demo log in</button> */}
             </div>
         );
 
