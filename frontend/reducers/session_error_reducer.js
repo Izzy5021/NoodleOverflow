@@ -1,0 +1,23 @@
+import {
+    RECEIVE_SESSION_ERRORS,
+    RECEIVE_CURRENT_USER,
+    CLEAR_SESSION_ERRORS
+} from '../actions/session_action';
+
+
+
+export default (state = [], action) => {
+    Object.freeze(state);
+    switch (action.type) {
+        case RECEIVE_SESSION_ERRORS:
+            console.log(action.errors)
+            return action.errors;
+            // return Object.assign(state, { errors: action.errors });
+        case RECEIVE_CURRENT_USER:
+            return [];
+        case CLEAR_SESSION_ERRORS:
+            return [];
+        default:
+            return state;
+    }
+};
