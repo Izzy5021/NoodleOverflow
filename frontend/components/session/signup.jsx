@@ -48,7 +48,7 @@ class Signup extends React.Component {
     render() {
         return (
             <div>
-                <div className="login-form-errors">{this.handleErrors()} </div>  
+                {/* <div className="login-form-errors">{this.handleErrors()} </div>   */}
                 {/* <span className="fab fa-stack-overflow"></span> */}
                     <h2 className="signup">Sign Up!</h2>
                 <div className='container'>
@@ -79,6 +79,7 @@ class Signup extends React.Component {
                         </label>
                         <button onClick={this.handleSubmit}>Sign Up</button>
                     </form>
+                    <div className="login-form-errors">{this.handleErrors()} </div>
                 </div>
             </div>
         );

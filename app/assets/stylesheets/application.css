@@ -159,3 +159,7 @@ input[type=submit]:hover {
 .logo {
     margin-left: 10px;
 }
+
+.login-form-errors {
+    color: red;
+}

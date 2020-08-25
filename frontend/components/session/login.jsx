@@ -67,7 +67,7 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-            <div className="login-form-errors">{this.handleErrors()} </div>
+            {/* <div className="login-form-errors">{this.handleErrors()} </div> */}
                 <h2 className="login">Log In!</h2>
             <div className='container'>
                 <form>
@@ -91,7 +91,9 @@ class Login extends React.Component {
 
                     {/* 0 */}
                 </form>
+                <div className="login-form-errors">{this.handleErrors()} </div>
             </div>
+
             </div>
         );
     }
