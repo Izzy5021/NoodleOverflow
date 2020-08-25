@@ -41,7 +41,8 @@ class Navbar extends React.Component {
             <header className='head' >
                 <div className="nav-bar">
                     <div className="nav-1">
-
+                        <i className="fab fa-stack-overflow"></i>
+                        {/* <i className="fab fa-stack-overflow"></i> */}
                         <h3 className="logo">NoodleOverFlow</h3>
                     </div>  
                     <div className="nav-2">

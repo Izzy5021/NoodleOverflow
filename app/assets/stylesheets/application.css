@@ -28,10 +28,10 @@ body {
     flex-wrap: nowrap;
     top: 0;
     width: 100%;
-    box-shadow: 0 0 2px 1px rgba(39,31,31,0.2);
-    border-top: 4px solid #F48025;
-    background-color: whitesmoke;
+    background-color: rgb(246, 244, 244);
     justify-content: space-between;
+    box-shadow: 0 0 2px 1px rgba(41, 32, 32, 0.2);
+    border-top: 4px solid #f37e24;
     align-items: center;
     position: sticky;
     height: 55px;

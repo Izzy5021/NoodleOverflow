@@ -49,7 +49,7 @@ class Signup extends React.Component {
         return (
             <div>
                 <div className="login-form-errors">{this.handleErrors()} </div>  
-           
+                {/* <span className="fab fa-stack-overflow"></span> */}
                     <h2 className="signup">Sign Up!</h2>
                 <div className='container'>
                     <form>
