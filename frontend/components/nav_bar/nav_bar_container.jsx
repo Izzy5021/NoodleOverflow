@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import NavBar from './nav_bar';
 
 
-
-import { logout } from '../../actions/session_action';
+// import { login } from '../../actions/session_action';
+import { logout, login } from '../../actions/session_action';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.currentUserId],
@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
+    login: () => dispatch(login()),
 });
 
 
