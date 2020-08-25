@@ -68,7 +68,7 @@ class Login extends React.Component {
         return (
             <div>
             <div className="login-form-errors">{this.handleErrors()} </div>
-                <h2>Log In!</h2>
+                <h2 className="login">Log In!</h2>
             <div className='container'>
                 <form>
                     <label>Email:
@@ -89,7 +89,7 @@ class Login extends React.Component {
                     </label>
                     <button onClick={this.handleSubmit}>Log in</button>
 
-                    <button onClick={this.handleDemo}>Demo Log in</button>
+                    {/* 0 */}
                 </form>
             </div>
             </div>

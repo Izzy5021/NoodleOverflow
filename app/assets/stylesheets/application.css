@@ -34,7 +34,6 @@ body {
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    /* z-index: 999; */
     height: 55px;
 }
 
@@ -132,4 +131,31 @@ input[type=submit]:hover {
     padding-left: 12%;
     max-width: 250px;
     margin: auto;
+}
+
+.login, .signup {
+    text-align: center;
+}
+
+.nav-loggedin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logged-1,  .nav-logged-2 {
+    margin-right: 10px;
+}
+
+.demo {
+    margin-right: 7px;
+    margin-left: 10px;
+}
+
+/* .nav-logged-2 {
+    margin-right: 10px;
+} */
+
+.logo {
+    margin-left: 10px;
 }

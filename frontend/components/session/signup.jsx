@@ -50,7 +50,7 @@ class Signup extends React.Component {
             <div>
                 <div className="login-form-errors">{this.handleErrors()} </div>  
            
-                    <h2>Sign Up!</h2>
+                    <h2 className="signup">Sign Up!</h2>
                 <div className='container'>
                     <form>
                         <label>Username:
