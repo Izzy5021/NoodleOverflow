@@ -68,12 +68,13 @@ class Login extends React.Component {
         return (
             <div>
             <div className="login-form-errors">{this.handleErrors()} </div>
-            <div className='session-form'>
                 <h2>Log In!</h2>
+            <div className='container'>
                 <form>
                     <label>Email:
                     <input
                             type='text'
+                            placeholder="enter email"
                             value={this.state.email}
                             onChange={this.handleInput('email')}
                         />
@@ -81,6 +82,7 @@ class Login extends React.Component {
                     <label>Password:
                     <input
                             type='password'
+                            placeholder="enter password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />

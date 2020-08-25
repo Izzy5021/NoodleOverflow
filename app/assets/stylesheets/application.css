@@ -37,54 +37,46 @@ body {
     /* z-index: 999; */
     height: 55px;
 }
-.nav-bar div {
-  
-}
-.nav-bar > div {
 
-   /* width: 33%; */
-  /* margin: 10px;
-  line-height: 75px;  */
-}
 
 
 
 .btn-login {
- margin: 15px;
- background-color: rgba(175, 176, 223, 0.404);
-  color: black;
-  border: 2px solid rgb(223, 228, 223);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+    margin: 15px;
+    background-color: rgba(175, 176, 223, 0.404);
+    color: black;
+    border: 2px solid rgb(223, 228, 223);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-demo {
- margin: 15px;
- background-color: white;
-  color: black;
-  border: 2px solid rgb(223, 228, 223);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+    margin: 15px;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(223, 228, 223);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-signup {
- margin: 15px;
-  background-color: rgba(108, 150, 218, 0.671);
-  color: black;
-  border: 2px solid rgba(177, 167, 167, 0.781);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+    margin: 15px;
+    background-color: rgba(108, 150, 218, 0.671);
+    color: black;
+    border: 2px solid rgba(177, 167, 167, 0.781);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+ }
 
 .btn-login:hover {
-  background-color: rgb(153, 153, 177);
-  color: white;
+    background-color: rgb(153, 153, 177);
+    color: white;
 }
 
 .btn-demo:hover {
@@ -95,4 +87,49 @@ body {
 .btn-signup:hover {
     background-color: rgb(13, 13, 209);
     color: white;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=password], select, textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+ input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+} 
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    padding-right: 12%;
+    padding-left: 12%;
+    max-width: 250px;
+    margin: auto;
 }

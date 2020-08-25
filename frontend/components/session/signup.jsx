@@ -50,12 +50,13 @@ class Signup extends React.Component {
             <div>
                 <div className="login-form-errors">{this.handleErrors()} </div>  
            
-                <div className='session-form'>
-                    <h2>Sign Up!!!!!!!</h2>
+                    <h2>Sign Up!</h2>
+                <div className='container'>
                     <form>
                         <label>Username:
                         <input
                                 type='text'
+                                placeholder="enter username"
                                 value={this.state.username}
                                 onChange={this.handleInput('username')}
                             />
@@ -63,6 +64,7 @@ class Signup extends React.Component {
                         <label>Email:
                         <input
                                 type='text'
+                                placeholder="enter email"
                                 value={this.state.email}
                                 onChange={this.handleInput('email')}
                             />
@@ -70,6 +72,7 @@ class Signup extends React.Component {
                         <label>Password:
                         <input
                                 type='password'
+                                placeholder="enter password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}
                             />
