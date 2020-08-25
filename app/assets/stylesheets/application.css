@@ -36,8 +36,21 @@ body {
     height: 55px;
 }
 
+.btn-logout:hover {
+    background-color: rgb(198, 198, 216);
+    color: white;
+}
 
-
+.btn-logout {
+    margin: 15px;
+    background-color: rgba(205, 208, 226, 0.603);
+    color: black;
+    border: 2px solid rgb(223, 228, 223);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
 
 .btn-login {
     margin: 15px;
@@ -50,7 +63,7 @@ body {
     display: inline-block;
 }
 
-.btn-demo {
+.demo {
     margin: 15px;
     background-color: white;
     color: black;
@@ -59,6 +72,11 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+.demo:hover {
+    background-color: rgb(212, 56, 77);
+    color: white;
 }
 
 .btn-signup {
@@ -78,12 +96,12 @@ body {
 }
 
 .btn-demo:hover {
-    background-color: rgb(153, 153, 177);
+    background-color: rgb(212, 56, 77);
     color: white;
 }
 
 .btn-signup:hover {
-    background-color: rgb(13, 13, 209);
+    background-color: rgb(24, 128, 226);
     color: white;
 }
 
