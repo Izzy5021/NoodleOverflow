@@ -48,6 +48,7 @@ class Navbar extends React.Component {
                     <div className="nav-2">
                     </div>
                     <div className="nav-3">
+                        
                         {display}
                     </div>
                 </div>

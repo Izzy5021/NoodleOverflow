@@ -180,3 +180,19 @@ input[type=submit]:hover {
 .login-form-errors {
     color: red;
 }
+
+.main-landing {
+        background-color: #ffcf10;
+    /* background-image: url("frontend/components/landing_page/stackoverpic.svg"); */
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.landing-h1 {
+ text-align: center;
+}
+
+.landing-p {
+    text-align: center;
+    display: inline-block;
+}
