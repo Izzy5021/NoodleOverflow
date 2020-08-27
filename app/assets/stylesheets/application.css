@@ -38,22 +38,7 @@ body {
     font-family: arial;
 }
 
-.btn-logout:hover {
-    background-color: rgb(198, 198, 216);
-    color: white;
-}
 
-.btn-logout {
-    margin: 15px;
-    background-color: rgba(205, 208, 226, 0.603);
-    color: black;
-    border: 2px solid rgb(223, 228, 223);
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: arial;
-}
 
 .btn-login {
     margin: 15px;
