@@ -10,6 +10,9 @@
       window.picture = "<%= image_url("stackoverflowpic.svg") %>"
     </script>
 
+    <script type="text/javascript">
+      window.card = "<%= image_url("stackcard.svg") %>"
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
      <% if current_user%>
@@ -20,7 +23,6 @@
             "email":  "<%= current_user.email%>"
           };
       </script>
-    
     <% end%>
   </head>
 

@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
-// export default ({ currentUser, logout }) => {
+    
     constructor(props){
         super(props);
     }
 
-   
     render(){
         const display = this.props.currentUser ? 
             (
@@ -20,39 +19,20 @@ class Navbar extends React.Component {
                     </div>
                 </div>
             ) : (
-                <div className="nav-buttons-right">
-
-                    <Link className="btn-signup" to="/signup">Sign Up</Link>
-
-                    <Link className="btn-login" to="/login">Log In</Link>
-
-                    {/* <Link className="btn-demo" to="/login">Demo Log In</Link> */}
-
-                    <button className="demo"
-                        onClick={() => this.props.login({
-                            email: "test89@test.com",
-                            password: "1234567890"
-                        })}
-                    >Demo mode</button>
-
-                </div>
+                 <div className="nav-buttons-right">
+                    <a  className="nav-right" onClick={() => this.props.login({
+                        email: "test89@test.com",
+                        password: "1234567890"
+                    })}>Demo mode</a>
+                    <a  href="#/signup" className="nav-right">Sign up</a>
+                    <a  href="#/login" className="nav-right">Log in</a>
+                </div> 
             );
         return (
-            <header className='head' >
-                <div className="nav-bar">
-                    <div className="nav-1">
-                        <i className="fab fa-stack-overflow"></i>
-                        {/* <i className="fab fa-stack-overflow"></i> */}
-                        <h3 className="logo">NoodleOverFlow</h3>
-                    </div>  
-                    <div className="nav-2">
-                    </div>
-                    <div className="nav-3">
-                        
-                        {display}
-                    </div>
-                </div>
-            </header>
+            <div className="topnav" id="myTopnav">
+                <a href="#home" className=""><i className="fab fa-stack-overflow"></i> CodeOverFlow</a>
+                {display}
+            </div>
         );
     };
  };
