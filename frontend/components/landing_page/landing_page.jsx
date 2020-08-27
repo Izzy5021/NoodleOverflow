@@ -26,8 +26,8 @@ class Landing extends React.Component {
                             We build products that empower developers and connect them to solutions that enable productivity, growth, and discovery.    
                         </div> 
                         <div className="button-landing">
-                            <button className="button">Github</button>
-                            <button className="button">Indeed</button>
+                            <button className="git">Github</button>
+                            <button className="indeed">Indeed</button>
                         </div>
                     </div>
                 </div>
@@ -43,10 +43,20 @@ class Landing extends React.Component {
                         </div>
                             <div className="card-container">
                                 <div className="card low-card">
-                                    
+                                    <img className="stack card-pic" src={window.cardleft} />
+                                    <h4 className="card-title">Public Q&A</h4>
+                                    <div className="card-text">
+                                        Get answers to more than 16.5 million questions and give back by sharing your knowledge with others. Sign up for an account.
+                                    </div>
+                                    <button className="button card-button">Browse questions</button>
                                 </div>
                                 <div className="card">
-                                   
+                                    <img className="stack card-pic" src={window.cardmiddle} />
+                                    <h4 className="card-title">Private Q&A</h4>
+                                    <div className="card-text">
+                                        Level up with Stack Overflow while you work. Share knowledge privately with your coworkers using our flagship Q&A engine.
+                                    </div>
+                                    <button className="button card-button-middle">Try for free</button>
                                 </div>
                                 <div className="card low-card">
                                     <img className="stack card-pic" src={window.card} />

@@ -225,8 +225,7 @@ h1 {
     top: 22%;
     width: 100%;
 }
-
-.button {
+.git {
     background-color: white;
     border: 1.75px solid #FF9900;
     font-size: 16px;
@@ -234,12 +233,27 @@ h1 {
     width: 120px;
     border-radius: 5px; 
     margin: 5px;
+    color: #FF9900;
+}
+
+.indeed {
+    background-color: white;
+    border: 1.75px solid #FF9900;
+    font-size: 16px;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px; 
+    margin: 5px;
+    font: white;
+    background-color: #FF9900;
+    color: white;
 }
 
 .button-landing {
     display: inline;
     padding-top: 3%;
 }
+
 
 .land-div-2 {
     text-align: center;
@@ -298,8 +312,15 @@ h1 {
     background-color: #1A237E;
     border: none;
     color: white;
+    font-size: small;
 }
 
+.card-button-middle {
+     background-color: #FF9900;
+    border: none;
+    color: white;
+    font-size: small;
+}
 
 .topnav {
     border-top: 3px solid orange;
@@ -307,7 +328,6 @@ h1 {
     background-color: #F5F5F5;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   display: block;
@@ -318,19 +338,14 @@ h1 {
   font-size: 17px;
 }
 
-/* Change the color of links on hover */
+
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* Add an active class to highlight the current page */
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
-/* Hide the link that should open and close the topnav on small screens */
+
 .topnav .icon {
   display: none;
 }
@@ -339,3 +354,7 @@ h1 {
     float: right;
 }
 
+.flow {
+    font-weight: bold;
+    padding-left: 1.8px;
+}
