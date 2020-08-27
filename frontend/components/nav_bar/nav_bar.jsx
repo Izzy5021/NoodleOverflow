@@ -30,7 +30,7 @@ class Navbar extends React.Component {
             );
         return (
             <div className="topnav" id="myTopnav">
-                <a href="#home" className=""><i className="fab fa-stack-overflow"></i> code<span className="flow">overflow</span> </a>
+                <a href="#/" className="flow-button" disabled><i className="fab fa-stack-overflow"></i> code<span className="flow">overflow</span> </a>
                 {display}
             </div>
         );
