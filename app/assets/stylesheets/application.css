@@ -180,7 +180,7 @@ input[type=submit]:hover {
     /* background-image: url("frontend/components/landing_page/stackoverpic.svg"); */
     background-repeat: no-repeat;
     background-position: top center;
-    height: 350px;
+    height: 420px;
 }
 
 .landing-h1 {
