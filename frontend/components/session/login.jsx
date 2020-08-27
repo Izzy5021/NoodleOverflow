@@ -32,13 +32,13 @@ class Login extends React.Component {
 
     
     handleErrors(){
-        console.log(this.props.errors)
+        
         if (this.props.errors === null ){
          
             return null
         }
         else {
-            console.log('else')
+           
             return(
                 <ul>
                     {this.props.errors.map(error => (

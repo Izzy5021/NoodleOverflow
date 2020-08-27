@@ -9,7 +9,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = (state ) => {
     
-    console.log("state.errors ", state.errors)
+    
     return {
         errors: state.errors,
         formType: 'Log in'

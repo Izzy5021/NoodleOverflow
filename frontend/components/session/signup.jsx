@@ -3,7 +3,6 @@ import React from 'react';
 class Signup extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props.errors)
         this.state = {
             username: '',
             email: '',
@@ -22,13 +21,10 @@ class Signup extends React.Component {
     }
 
     handleErrors() {
-        console.log(this.props.errors)
         if (this.props.errors === null) {
-            console.log('if')
             return null
         }
         else {
-            console.log('else')
             return (
                 <ul>
                     {this.props.errors.map(error => (
