@@ -8,10 +8,7 @@ class Landing extends React.Component {
        
       
     }
-
-
    
-
     render() {
         const love = '<'
         return (
@@ -27,7 +24,7 @@ class Landing extends React.Component {
                         </div> 
                         <div className="button-landing">
                             <button className="git">Github</button>
-                            <button className="indeed">Indeed</button>
+                            <button className="indeed">Linkedin</button>
                         </div>
                     </div>
                 </div>

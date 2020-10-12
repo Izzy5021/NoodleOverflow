@@ -18,7 +18,7 @@ export default () => (
                 {/* <Route path="/" component={NavBarContainer} /> */}
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
-                <Route exact path="/newQuestion" component={QuestionFormContainer} />
+                <ProtectedRoute exact path="/newQuestion" component={QuestionFormContainer} />
             </Switch>
         </div>
     </div>
