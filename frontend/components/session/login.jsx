@@ -39,8 +39,8 @@ class Login extends React.Component {
         else {   
             return(
                 <ul>
-                    {this.props.errors.map(error => (
-                        <li>{error}</li>
+                    {this.props.errors.map((error,i) => (
+                        <li key={i}>{error}</li>
                     ))}
                 </ul>
             )
@@ -54,13 +54,16 @@ class Login extends React.Component {
     }
 
     handleDemo(e){
-        e.preventDefault();
+        //e.preventDefault();
         const demoUser = {
             email: "test89@test.com",
             password: "1234567890"
          }
+        console.log(this.props.history) 
         this.props.login(demoUser)
             .then(() => this.props.history.push('/homePage'));
+        console.log('JHelloooo',this.props.history) 
+
     }
 
 

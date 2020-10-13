@@ -5,6 +5,21 @@ class Navbar extends React.Component {
     
     constructor(props){
         super(props);
+        this.handleDemo = this.handleDemo.bind(this);
+    }
+
+
+    handleDemo(e){
+        //e.preventDefault();
+        const demoUser = {
+            email: "test89@test.com",
+            password: "1234567890"
+         }
+        console.log(this.props.history) 
+        this.props.login(demoUser)
+            .then(() => this.props.history.push('/homePage'));
+        console.log('JHelloooo',this.props.history) 
+
     }
 
     render(){
@@ -22,10 +37,7 @@ class Navbar extends React.Component {
                 </div>
             ) : (
                  <div className="nav-buttons-right">
-                    <a  className="nav-right" onClick={() => this.props.login({
-                        email: "test89@test.com",
-                        password: "1234567890"
-                    })}>Demo mode</a>
+                    <a  className="nav-right" onClick={() => this.handleDemo()}>Demo mode</a>
                     <a  href="#/signup" className="nav-right">Sign up</a>
                     <a  href="#/login" className="nav-right">Log in</a>
                 </div> 

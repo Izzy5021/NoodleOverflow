@@ -40,27 +40,56 @@ class HomePage extends React.Component {
 
     render() {
         let questions = Object.values(this.props.questions)
-        console.log("questions from render", questions)
-        console.log("get in there...:", questions[0])
-        return (
-            <div>
-                <div className="sidenav">
-                    <a href="#about">About</a>
-                    <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
-                    <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
-                    <a href="#/newQuestion">New Question</a>
+        if(questions.length !==0 ){
+            // console.log("questions from render", questions)
+            console.log("get in there...:", questions[0].title)
+        
+        
+            return (
+                <div>
+                    <div className="sidenav">
+                        <a href="#about">About</a>
+                        <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
+                        <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                        <a href="#/newQuestion">New Question</a>
+                    </div>
+                    <h2 className="home-h2">Top Questions</h2>
+                    <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
+                    {
+                            questions.map((question, i) => {
+                                return (
+                                    <div className="questions-show" key={i} >
+                                        <br/>
+                                        <br/>
+                                        {question.title}
+                                        <br/>
+                                        <br/>
+                                        {question.body}
+                                        <br/>
+                                        <br/>
+                                        
+                                    </div>
+                                )
+                            })
+                        }
                 </div>
-                <h2 className="home-h2">Top Questions</h2>
-                <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                 {
-                        questions.map((question, i) => {
-                            return (
-                                <div key={i} >{question[i]}</div>
-                            )
-                        })
-                    }
-            </div>
-        );
+            );
+        }else{
+            return(
+                <div>
+                    <div className="sidenav">
+                        <a href="#about">About</a>
+                        <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
+                        <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                        <a href="#/newQuestion">New Question</a>
+                    </div>
+                    <h2 className="home-h2">Top Questions</h2>
+                    <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
+                    <div>Questions Loading ......</div>
+                </div>
+                
+            )
+        }
     }
 };
 

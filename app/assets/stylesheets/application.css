@@ -379,6 +379,8 @@ body {
   overflow-x: hidden;
   padding-top: 20px;
   border-right: 1px solid #6f6b6b63;
+  /* border-top: .5px solid #6f6b6b63;
+  border-bottom: 1px solid #6f6b6b63; */
 }
 /* 
 .nav-links .youarehere .nav-links--link {
@@ -427,4 +429,11 @@ body {
 .home-h2 {
     margin-left: 20%;
     display: inline-block;
+}
+
+.questions-show {
+       margin: auto;
+    text-align: center;
+    border-bottom: 1px solid #6f6b6b63;
+    margin-left: 160px;
 }
