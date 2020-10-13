@@ -6,6 +6,8 @@ def create
     if @question.save 
       render :show
       # render json: { message: "Question saved"}
+    else 
+      render json: ["Question body or title can't be blank"]
     end
 end
 
@@ -14,7 +16,7 @@ end
 
       @questions = questions.includes(:author, :answers)
 
-      render :index
+      render json: questions
   end
 
   def show

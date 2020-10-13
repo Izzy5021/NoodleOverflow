@@ -10,8 +10,8 @@ class QuestionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
-        console.log("CONSTRUCTOR this.state:",this.state)
-        console.log("constructror this.props", this.props)
+        // console.log("CONSTRUCTOR this.state:",this.state)
+        // console.log("constructror this.props", this.props)
     }
 
 
@@ -55,6 +55,7 @@ class QuestionForm extends React.Component {
         const question = Object.assign({}, this.state);//, { author_id: this.props.author_id.id });
         console.log("question", question)
         this.props.createQuestion(question);
+        // this.props.history.push('/homePage');
         // this.setState({ body: '', title: '' });
         // this.props.history.push('/');
             // .then(() => this.props.history.push('/'));

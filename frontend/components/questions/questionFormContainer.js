@@ -7,7 +7,7 @@ const mapDispatchToProps = dispatch => ({
     });
 
 const mapStateToProps = state => ({
-        author_id: state.session.currentUserId
+        author_id: state.session.currentUserId,
     });
 
 export default connect(mapStateToProps, mapDispatchToProps)(questionForm);

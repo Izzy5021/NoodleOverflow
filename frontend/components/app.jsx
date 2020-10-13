@@ -6,6 +6,7 @@ import LoginContainer from './session/login_container'
 import { AuthRoute, ProtectedRoute } from '../utils/route_utils'
 import Landing from './landing_page/landing_page_container'
 import QuestionFormContainer from './questions/questionFormContainer';
+import HomePageContainer from './home_page/home_page_container';
 
 export default () => (
     <div>
@@ -19,6 +20,8 @@ export default () => (
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
                 <ProtectedRoute exact path="/newQuestion" component={QuestionFormContainer} />
+                <ProtectedRoute exact path="/homePage" component={HomePageContainer} />
+
             </Switch>
         </div>
     </div>

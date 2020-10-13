@@ -50,15 +50,17 @@ class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.login(this.state)
-            .then(() => this.props.history.push('/'));
+            .then(() => this.props.history.push('/homePage'));
     }
 
     handleDemo(e){
         e.preventDefault();
-        this.props.login({
+        const demoUser = {
             email: "test89@test.com",
             password: "1234567890"
-        }).then(() => this.props.history.push("/"));
+         }
+        this.props.login(demoUser)
+            .then(() => this.props.history.push('/homePage'));
     }
 
 
