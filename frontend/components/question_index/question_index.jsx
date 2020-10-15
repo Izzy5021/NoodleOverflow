@@ -1,15 +1,10 @@
 import React from 'react';
 
-class HomePage extends React.Component {
+class ShowPage extends React.Component {
     constructor(props) {
         super(props);
-         this.state = {
-            question_id : '',
-            author_id: Number(props.author_id)
-        };
         console.log("state is:", this.props)
-        this.askQuestion = this.askQuestion.bind(this);
-        this.openQuestion = this.openQuestion.bind(this);
+        // this.openQuestion = this.openQuestion.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
         // this.handleInput = this.handleInput.bind(this);
         // console.log("CONSTRUCTOR this.state:",this.state)
@@ -23,21 +18,10 @@ class HomePage extends React.Component {
     //     return (e) => {
     //         this.setState({ [type]: e.target.value });
     //     };
-    // }
-        componentDidMount() { this.props.fetchQuestions()}
+    // } 
+       componentDidMount() { this.props.fetchQuestion(this.props.mash.params.questionId)}
     
-      askQuestion(e) {
-        e.preventDefault();
-        this.props.history.push('/newQuestion');
-    }
-
-        openQuestion(id) {
-        // e.preventDefault();
-    //    return (e) => {
-    //         this.setState({ [type]: e.target.value });
-    //     };
-        this.props.history.push(`/showQuestion/${id}`)
-    }
+  
 
     // handleSubmit(e) {
     //     e.preventDefault();
@@ -66,22 +50,22 @@ class HomePage extends React.Component {
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                    <h2 className="home-h2">Top Questions</h2>
-                    <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
+                    <h2 className="home-h2">Question</h2>
+                 
                     {
                             questions.map((question, i) => {
                                 return (
                                     <div className="questions-show" key={i} >
                                         <br/>
                                         <br/>
-                                        <button   value={this.state.body}
-                                        //    onClick={() => sayHello('James')}
-                                            onClick={() => this.openQuestion(question.id)}> {question.title}
-                                        </button>
-                                        {/* {question.title} */}
+                                      
+                                        {question.title}
                                         <br/>
                                         <br/>
-                                   
+                                        {question.body}
+                                        <br/>
+                                        <br/>
+                                        
                                     </div>
                                 )
                             })
@@ -97,9 +81,8 @@ class HomePage extends React.Component {
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                    <h2 className="home-h2">Top Questions</h2>
-                    <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    <div>Questions Loading ......</div>
+                    <h2 className="home-h2">Question</h2>
+                    <div className="loading" >Question Loading ......</div>
                 </div>
                 
             )
@@ -107,4 +90,4 @@ class HomePage extends React.Component {
     }
 };
 
-export default HomePage;
+export default ShowPage;

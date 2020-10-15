@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_QUESTIONS, RECEIVE_QUESTION } from '../actions/question_action';
+import { RECEIVE_ALL_QUESTIONS, POST_QUESTION, RECEIVE_QUESTION } from '../actions/question_action';
 
 
 export default (state = {}, action) => {
@@ -15,12 +15,16 @@ export default (state = {}, action) => {
             // should i entirely replace state here without assigning the id as a key in the obj ask Sami????
             // return action.questions
             return questions;
-        case RECEIVE_QUESTION:
+        case POST_QUESTION:
         //    return nextState[action.question.id] = action.question  
-        console.log("question reducer:", action.question)
-            return Object.assign({}, state, { [action.question.id] : action.question });
+              console.log("question reducer:", action.question)
+              console.log(action.question.id)
+              return Object.assign({}, state, { [action.question.id] : action.question });
             // return Object.assign({}, state, { [action.question.id]: action.question });
+        case RECEIVE_QUESTION:
+            console.log("Show quest questions reducer", action.questions)
+            return Object.assign({}, state, { [action.question.id] : action.question });
         default:
-            return state;
+        return state;
     }
 };

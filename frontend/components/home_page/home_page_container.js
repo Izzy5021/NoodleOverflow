@@ -1,10 +1,10 @@
 import homePage from './home_page';
- import { fetchQuestions } from '../../actions/question_action';
+ import { fetchQuestions, fetchQuestion } from '../../actions/question_action';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => ({
     fetchQuestions: () => dispatch(fetchQuestions()),
-
+    fetchQuestion: (id) => dispatch(fetchQuestion(id)),
     });
 
 

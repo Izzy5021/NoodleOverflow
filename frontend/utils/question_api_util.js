@@ -1,4 +1,4 @@
-export const postQuestion = question => { 
+export const newQuestion = question => { 
     return $.ajax({
         url: '/api/questions',
         method: 'POST',

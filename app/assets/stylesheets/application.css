@@ -437,3 +437,8 @@ body {
     border-bottom: 1px solid #6f6b6b63;
     margin-left: 160px;
 }
+
+
+.loading {
+    margin-left: 50%;
+}

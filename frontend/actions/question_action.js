@@ -1,7 +1,8 @@
-import { getQuestions, getQuestion, postQuestion } from '../utils/question_api_util';
+import { getQuestions, getQuestion, newQuestion } from '../utils/question_api_util';
 export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
 
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
+export const POST_QUESTION = 'POST_QUESTION';
 
 
 const receiveAllQuestions = questions => ({
@@ -14,8 +15,13 @@ const receiveQuestion = question => ({
     question
 });
 
-export const createQuestion = question => dispatch => postQuestion(question)
-    .then(createdQuestion => dispatch(receiveQuestion(createdQuestion)));
+const postQuestion = question => ({
+    type: POST_QUESTION,
+    question
+});
+
+export const createQuestion = question => dispatch => newQuestion(question)
+    .then(createdQuestion => dispatch(postQuestion(createdQuestion)));
 
 
 
