@@ -19,7 +19,7 @@ class ShowPage extends React.Component {
     //         this.setState({ [type]: e.target.value });
     //     };
     // } 
-       componentDidMount() { this.props.fetchQuestion(this.props.mash.params.questionId)}
+    //    componentDidMount() { this.props.fetchQuestion(this.props.mash.params.questionId)}
     
   
 
@@ -45,7 +45,7 @@ class ShowPage extends React.Component {
             return (
                 <div>
                     <div className="sidenav">
-                        <a href="#about">About</a>
+                        <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
                         <a href="#/newQuestion">New Question</a>
@@ -76,7 +76,7 @@ class ShowPage extends React.Component {
             return(
                 <div>
                     <div className="sidenav">
-                        <a href="#about">About</a>
+                        <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
                         <a href="#/newQuestion">New Question</a>
