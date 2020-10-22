@@ -1,10 +1,10 @@
 import ShowPage from './question_index';
- import { fetchQuestion } from '../../actions/question_action';
+ import { fetchQuestion, showQuestion } from '../../actions/question_action';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => ({
-    fetchQuestion: () => dispatch(fetchQuestion()),
- 
+    fetchQuestion: (id) => dispatch(fetchQuestion(id)),
+     showQuestion: id => dispatch(showQuestion(id)),
     });
 
 

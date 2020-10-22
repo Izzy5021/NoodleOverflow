@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
@@ -7,7 +8,6 @@ class HomePage extends React.Component {
             question_id : '',
             author_id: Number(props.author_id)
         };
-        console.log("state is:", this.props)
         this.askQuestion = this.askQuestion.bind(this);
         this.openQuestion = this.openQuestion.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +36,8 @@ class HomePage extends React.Component {
     //    return (e) => {
     //         this.setState({ [type]: e.target.value });
     //     };
-        this.props.history.push(`/showQuestion/${id}`)
+        // this.props.showQuestion(id);
+        this.props.history.push(`/showQuestion/${id}`);
     }
 
     // handleSubmit(e) {
@@ -52,10 +53,11 @@ class HomePage extends React.Component {
     // }
 
     render() {
-        let questions = Object.values(this.props.questions)
-        if(questions.length !==0 ){
+        let questions = this.props.questions.arr ? this.props.questions.arr : [];
+        // let {questions} = this.props; 
+        if( questions.length !==0 ){
             // console.log("questions from render", questions)
-            console.log("get in there...:", questions[0].title)
+            console.log("get in there...:", questions[1].title)
         
         
             return (

@@ -1,7 +1,6 @@
 class Api::QuestionsController < ApplicationController
   
 def create
-#  debugger
     @question = Question.new(question_params)
     if @question.save 
       render :show
@@ -12,17 +11,24 @@ def create
 end
 
   def index
+      # console.log("im in the index controller")
       questions = Question.all
 
-      @questions = questions.includes(:author, :answers)
+      # @questions = questions.includes(:author, :answers)
 
       render json: questions
   end
 
   def show
-      @question = Question.includes(:author, :answers, :comments, :likes).find(params[:id])
-
-      render :show
+    # console.log("im in the show controller")
+      # @question = Question.includes(:author_id, :body, :title).find(params[:id])
+      @question = Question.find(params[:id])
+      # console.log("question from show", @question)
+      if @question 
+        render @question
+      else  
+        render json: ["Question not found"]
+      end 
   end
 
 
