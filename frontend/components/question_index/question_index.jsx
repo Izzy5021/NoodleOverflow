@@ -7,7 +7,8 @@ class ShowPage extends React.Component {
         super(props);
         this.state = {
             currentQuestion: null, 
-            id: null 
+            id: null,
+            answerBody: ''
         }  
        
         console.log("window.location:", window.location);
@@ -23,13 +24,27 @@ class ShowPage extends React.Component {
         // }
 
         // this.openQuestion = this.openQuestion.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
         console.log("CONSTRUCTOR this.state:",this.state);
         console.log("constructror this.props", this.props);
     }
 
 
+    handleInput(type) {
+        return (e) => {
+            this.setState({ [type]: e.target.value });
+        };
+    }
+
+     handleSubmit(e) {
+        e.preventDefault();
+        console.log("from handleSubmit this.props:", this.props)
+        console.log("from handleSubmit this.state:", this.state)
+        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: Number(this.props.match.params.id)});//, { author_id: this.props.author_id.id });
+        console.log("answer", answer)
+        this.props.createAnswer(answer);
+    }
     // componentWillUnmount() { this.props.clearSessionErrors() }
 
     componentDidUpdate(prevProps, prevState) {
@@ -67,19 +82,33 @@ class ShowPage extends React.Component {
                     </div>
                     <h2 className="home-h2">Question</h2>
                  
-                              <div className="questions-show"  >
-                                   <br/>
-                                   <br/>
-                                      
-                                  {currentQuestion.title}
-                                     <br/>
-                                     <br/>
-                                  {currentQuestion.body}
+                        <div className="questions-show"  >
+                            <br/>
+                            <br/>
+                                
+                            {currentQuestion.title}
+                                <br/>
+                                <br/>
+                            {currentQuestion.body}
 
-                                    <br/>
-                                    <br/>      
-                              </div>
-                </div>
+                            <br/>
+                            <br/>      
+                        </div>
+                      
+                     <h3 className="answer-header">Your Answer</h3>
+                <div className="answer-form" >
+                    <form>
+                        <label>Body:
+                        <textarea
+                                placeholder="enter answer"
+                                value={this.state.answerBody}
+                                onChange={this.handleInput('answerBody')}
+                            />
+                        </label>
+                        <button onClick={this.handleSubmit}>Post Your Answer</button>
+                    </form>
+                 </div>
+            </div>
             );
         }else{
             return(
