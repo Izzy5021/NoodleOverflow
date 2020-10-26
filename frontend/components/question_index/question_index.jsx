@@ -94,13 +94,13 @@ class ShowPage extends React.Component {
                             <br/>
                             <br/>      
                         </div>
-                      
-                     <h3 className="answer-header">Your Answer</h3>
+                  <br/>
+                   <br/>   
                 <div className="answer-form" >
                     <form>
-                        <label>Body:
+                        <label>Your Answer
                         <textarea
-                                placeholder="enter answer"
+                                placeholder="enter here"
                                 value={this.state.answerBody}
                                 onChange={this.handleInput('answerBody')}
                             />
