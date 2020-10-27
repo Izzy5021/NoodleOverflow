@@ -20,12 +20,10 @@ end
   end
 
   def show
-    # console.log("im in the show controller")
-      # @question = Question.includes(:author_id, :body, :title).find(params[:id])
       @question = Question.find(params[:id])
-      # console.log("question from show", @question)
+       @answers = @question.answers
       if @question 
-        render @question
+        render json: {question: @question, answers: @answers}
       else  
         render json: ["Question not found"]
       end 

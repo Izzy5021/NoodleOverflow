@@ -66,8 +66,14 @@ class QuestionForm extends React.Component {
             <div>
                 {/* <div className="login-form-errors">{this.handleErrors()} </div>   */}
                 {/* <span className="fab fa-stack-overflow"></span> */}
-                <h2 className="queston-form">Create Question!</h2>
-                <div >
+                  <div className="sidenav">
+                        <a href="#/homePage">Home</a>
+                        <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
+                        <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                        <a href="#/newQuestion">New Question</a>
+                    </div>
+                <h2 className="question-form-header">Create Question!</h2>
+                <div className="question-form">
                     <form>
                         <label>Question Title:
                         <input

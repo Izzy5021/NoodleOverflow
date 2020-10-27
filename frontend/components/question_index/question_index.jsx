@@ -86,18 +86,31 @@ class ShowPage extends React.Component {
                             <br/>
                             <br/>
                                 
-                            {currentQuestion.title}
+                            {currentQuestion.question.title}
                                 <br/>
                                 <br/>
-                            {currentQuestion.body}
+                            {currentQuestion.question.body}
 
                             <br/>
                             <br/>      
                         </div>
-                  <br/>
-                   <br/>   
+                   <h2 className="home-h2">{currentQuestion.answers.length} Answers</h2>  
+                   {/* <hr className="answers-show"/> */}
+                    {   currentQuestion.answers.map((answer, i) => {
+                            return (
+                                <div className="answers-show" key={i} >
+                                    <br/>
+                                    {answer.body}
+                                    <br/>
+                                    <br/>
+                                </div>
+                            )
+                         })
+                   }  
+                   {/* <hr className="answers-show"/> */}
                 <div className="answer-form" >
                     <form>
+                        <br/>
                         <label>Your Answer
                         <textarea
                                 placeholder="enter here"

@@ -446,3 +446,19 @@ body {
 .answer-form {
     margin-left: 25%;
 }
+
+.question-form {
+    margin-left: 25%;
+    margin-right: 8%;
+}
+
+.question-form-header {
+    margin-left: 50%;
+}
+
+.answers-show {
+    margin: auto;
+    text-align: center;
+    border-bottom: 1px solid #6f6b6b63;
+    margin-left: 160px;
+}
