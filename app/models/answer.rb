@@ -2,7 +2,7 @@ class Answer < ApplicationRecord
     validates :author_id, :question_id, :body, presence: true 
 
 
-    belongs_to :author,
+    belongs_to :user,
     primary_key: :id, 
     foreign_key: :author_id,
     class_name: :User

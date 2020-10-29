@@ -1,14 +1,14 @@
-import { getAnswer, newAnswer } from '../utils/answer_api_util';
-// export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS';
+import { getAnswers, newAnswer } from '../utils/answer_api_util';
+export const RECEIVE_ALL_ANSWERS = 'RECEIVE_ALL_ANSWERS';
 
 // export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const POST_ANSWER = 'POST_ANSWER';
 // export const SHOW_QUESTION = 'SHOW_QUESTION';
 
-// const receiveAllQuestions = questions => ({
-//     type: RECEIVE_ALL_QUESTIONS,
-//     questions
-// });
+const receiveAllAnswers = answers => ({
+    type: RECEIVE_ALL_ANSWERS,
+    answers
+});
 
 // const receiveQuestion = question => ({
 //     type: RECEIVE_QUESTION,
@@ -35,10 +35,10 @@ export const createAnswer = answer => dispatch => newAnswer(answer)
 //             .then(question => dispatch(receiveQuestion(question)));
 // };
     
-// export const fetchQuestions = () => dispatch => {
-//     return getQuestions()
-//         .then(questions => dispatch(receiveAllQuestions(questions)));
-// };
+export const fetchAnswers = () => dispatch => {
+    return getAnswers()
+        .then(answers => dispatch(receiveAllAnswers(answers)));
+};
 
 // export const showQuestion = (id) => dispatch => {
 //     return getQuestion(id)

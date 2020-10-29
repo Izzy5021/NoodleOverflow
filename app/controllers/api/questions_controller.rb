@@ -22,6 +22,7 @@ end
   def show
       @question = Question.find(params[:id])
        @answers = @question.answers
+       p @answers
       if @question 
         render json: {question: @question, answers: @answers}
       else  

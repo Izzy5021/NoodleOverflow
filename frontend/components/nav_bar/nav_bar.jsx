@@ -32,7 +32,7 @@ class Navbar extends React.Component {
                     <div className="nav-logged-2">
                         
                     {/* <button className="nav-right" >log out</button> */}
-                        <a onClick={() => this.props.logout()} className="nav-right">Log out</a>
+                        <a onClick={() => this.props.logout().then(() => this.props.history.push('/'))} className="nav-right">Log out</a>
                     </div>
                 </div>
             ) : (
@@ -44,7 +44,7 @@ class Navbar extends React.Component {
             );
         return (
             <div className="topnav" id="myTopnav">
-                <a href="#/" className="flow-button" disabled><i className="fab fa-stack-overflow"></i> code<span className="flow">overflow</span> </a>
+                <a href="#/homePage" className="flow-button" disabled><i className="fab fa-stack-overflow"></i> code<span className="flow">overflow</span> </a>
                 {display}
             </div>
         );

@@ -70,6 +70,7 @@ class QuestionForm extends React.Component {
                         <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                        <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
                 <h2 className="question-form-header">Create Question!</h2>

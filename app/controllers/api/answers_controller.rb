@@ -32,6 +32,9 @@ end
   end
 
   def update 
+    @answer = Answer.find(params[:id])
+    @answer.body = params[:body]
+    @answer.save
     console.log("answers controller update")
   end 
 

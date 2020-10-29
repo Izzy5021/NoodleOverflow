@@ -44,6 +44,10 @@ class ShowPage extends React.Component {
         const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: Number(this.props.match.params.id)});//, { author_id: this.props.author_id.id });
         console.log("answer", answer)
         this.props.createAnswer(answer);
+        this.props.showQuestion(this.props.match.params.id)
+        this.setState({ answerBody: ''});
+        // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
+
     }
     // componentWillUnmount() { this.props.clearSessionErrors() }
 
@@ -78,6 +82,7 @@ class ShowPage extends React.Component {
                         <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                        <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
                     <h2 className="home-h2">Question</h2>
@@ -130,6 +135,7 @@ class ShowPage extends React.Component {
                         <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                        <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
                     <h2 className="home-h2">Question</h2>
