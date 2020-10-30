@@ -39,7 +39,13 @@ end
   end 
 
   def destroy 
-    console.log("answers contrioller destroy")
+    p "im in the destroy controller" 
+    @answer = Answer.find(params[:id])
+    if @answer.destroy
+      render json: { message: "Answer deleted"}
+    else 
+      render json: ["Answer deletion unsuccessful"]
+    end
   end 
 
   private

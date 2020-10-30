@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_ANSWERS } from '../actions/answer_action';
+import { RECEIVE_ALL_ANSWERS, RECEIVE_ANSWER } from '../actions/answer_action';
 
 
 export default (state = {}, action) => {
@@ -22,7 +22,8 @@ export default (state = {}, action) => {
 
         //       return Object.assign({}, state, {arr: Object.assign([], state.arr, action.question)});
         //     // return Object.assign({}, state, { [action.question.id]: action.question });
-        // case RECEIVE_QUESTION:
+        // case RECEIVE_ANSWER:
+        //     return {arr: action.answers};
         //     console.log("Show quest questions reducer", action.questions)
         //     return Object.assign({}, state, {arr: Object.assign([], state.arr, { [action.question.id] : action.question })});
         //     // return Object.assign({}, state, { [action.question.id] : action.question });

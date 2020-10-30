@@ -6,9 +6,11 @@ class AnswerPage extends React.Component {
         super(props);
          this.state = {
             question_id : '',
-            author_id: Number(props.author_id)
+            author_id: Number(props.author_id),
+            selectedAnswerId: null
         };
         this.askQuestion = this.askQuestion.bind(this);
+        this.eliminateAnswer = this.eliminateAnswer.bind(this);
         // this.openQuestion = this.openQuestion.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
         // this.handleInput = this.handleInput.bind(this);
@@ -21,7 +23,7 @@ class AnswerPage extends React.Component {
 
     // handleInput(type) {
     //     return (e) => {
-    //         this.setState({ [type]: e.target.value });
+    //         this.setState({ [type]: e.target.selectedAnswerId });
     //     };
     // }
         componentDidMount() { this.props.fetchAnswers(), this.props.fetchQuestions()}
@@ -31,19 +33,15 @@ class AnswerPage extends React.Component {
         this.props.history.push('/newQuestion');
     }
 
-    //     openQuestion(id) {
-    //     // e.preventDefault();
-    // //    return (e) => {
-    // //         this.setState({ [type]: e.target.value });
-    // //     };
-    //     // this.props.showQuestion(id);
-    //     this.props.history.push(`/showQuestion/${id}`);
-    // }
+    eliminateAnswer(id){
+        console.log("id from eliminate answer", id)
+        // e.preventDefault();
+        this.props.eraseAnswer(id);
+    }
+    
 
     // handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log("from handleSubmit this.props:", this.props)
-    //     console.log("from handleSubmit this.state:", this.state)
+    //  
     //     const question = Object.assign({}, this.state);//, { author_id: this.props.author_id.id });
     //     console.log("question", question)
     //     this.props.createQuestion(question);
@@ -102,6 +100,9 @@ class AnswerPage extends React.Component {
                                     <br/>
                                     <h3>{user}'s Answer</h3>
                                     <h3>{answer.body}</h3>
+                                    {/* < button onCLick={  }>Select Answer</button>  */}
+                                    {/* <button disabled={!this.state.selectedAnswer} onClick={() => this.eliminateAnswer(answer.id)}>Erase</button> */}
+                                    <button onClick={() => this.eliminateAnswer(answer.id)}>Erase</button>
                                     <br/>
                                     <br/>
                                 

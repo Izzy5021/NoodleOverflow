@@ -55,7 +55,7 @@ class QuestionForm extends React.Component {
         const question = Object.assign({}, this.state);//, { author_id: this.props.author_id.id });
         console.log("question", question)
         this.props.createQuestion(question);
-        // this.props.history.push('/homePage');
+        this.props.history.push('/homePage');
         // this.setState({ body: '', title: '' });
         // this.props.history.push('/');
             // .then(() => this.props.history.push('/'));
@@ -73,7 +73,7 @@ class QuestionForm extends React.Component {
                         <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                <h2 className="question-form-header">Create Question!</h2>
+                <h2 className="question-form-header">Ask Question!</h2>
                 <div className="question-form">
                     <form>
                         <label>Question Title:
