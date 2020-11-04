@@ -1,38 +1,46 @@
 import React from 'react';
 
 
-class AnswerPage extends React.Component {
+class UpdateAnswer extends React.Component {
     constructor(props) {
         super(props);
          this.state = {
             question_id : '',
             author_id: Number(props.author_id),
-            selectedAnswerId: null,
             answerBody: '',
-            answerId: ''
+            answerId: '',
+            id: null
         };
         this.askQuestion = this.askQuestion.bind(this);
-        this.eliminateAnswer = this.eliminateAnswer.bind(this);
-        this.targetAnswer = this.targetAnswer.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
-        this.openAnswer = this.openAnswer.bind(this);
         console.log("CONSTRUCTOR this.state:",this.state)
         // console.log("constructror this.props", this.props)
     }
 
+    componentDidUpdate(prevProps, prevState) {
 
-        componentDidMount() { this.props.fetchAnswers(), this.props.fetchQuestions()}
+        if (prevProps.match.params.id !== this.props.match.params.id){
+            let id = Number(this.props.match.params.id);
+            this.setState({id: id});
+            console.log("im in the comp did update id is", id)
+        }
+        // console.log("state.id from update", this.state.id);
+        if(prevProps.questions.currentQuestion !== this.props.questions.currentQuestion){
+            // console.log("component did update")
+            let {currentQuestion} = this.props.questions;
+            this.setState({currentQuestion: currentQuestion});
+              console.log("im in the comp did update w no match id is", id)
+        }
+    }
+    // componentDidMount() {  this.props.showQuestion(this.props.match.params.id)}
+    
+  
+        componentDidMount() { this.props.fetchAnswer(this.props.match.params.id), this.props.fetchQuestions()}
     
       askQuestion(e) {
         e.preventDefault();
         this.props.history.push('/newQuestion');
-    }
-
-    eliminateAnswer(id){
-        console.log("id from eliminate answer", id)
-        // e.preventDefault();
-        this.props.eraseAnswer(id);
     }
 
     
@@ -43,60 +51,30 @@ class AnswerPage extends React.Component {
         };
     }
 
-    targetAnswer(id){
-      this.setState({answerId: id},  () => {
-   console.log("this.state.answerId is", id, this.state);
-      });
-    }
-
-     openAnswer(id) {
-        // e.preventDefault();
-    //    return (e) => {
-    //         this.setState({ [type]: e.target.value });
-    //     };
-        // this.props.showQuestion(id);
-        this.props.history.push(`/updateAnswer/${id}`);
-    }
-
-     handleSubmit(id, questionId) {
-        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: questionId});
+     handleSubmit(id) {
+        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: this.props.answers.answer.question_id});
         console.log("answer and id", answer, id)
         // this.props.updateAnswer(id, answer);
         // this.setState({ answerBody: '', question_id: '', id: ''});
         // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
 
     }
-    // handleSubmit(e) {
-    //  
-    //     const question = Object.assign({}, this.state);//, { author_id: this.props.author_id.id });
-    //     console.log("question", question)
-    //     this.props.createQuestion(question);
-    //     // this.setState({ body: '', title: '' });
-    //     // this.props.history.push('/');
-    //         // .then(() => this.props.history.push('/'));
-    // }
 
     render() {
-        let answers = this.props.answers.arr ? this.props.answers.arr : [];
+        let answers = this.props.answers.answer ? this.props.answers.answer : [];
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
 
         console.log("questions", questions)
         // let {questions} = this.props; 
-        if( answers.length !==0 && questions.length !== 0 ){
+        if(questions.length !== 0 ){
             // console.log("questions from render", questions)
-            console.log("get in there...:", this.props.currentUser.id)
+            console.log("get in there...:", this.props)
             let myAnswers = []
             let myQuestions = []
-            for ( let i = 0; i < answers.length; i++){
+            for ( let i = 0; i < questions.length; i++){
                let sub = {}
-                if (answers[i].author_id === this.props.currentUser.id){
-                    myAnswers.push(answers[i])
-                    for( let j = 0; j < questions.length; j++){
-                        if ( answers[i].question_id === questions[j].id){
-                        myQuestions.push(questions[j]) 
-                        }
-                    }
-                    
+                if (this.props.answers.answer.question_id === questions[i].id){
+                    myQuestions.push(questions[i]) 
                 }
             }
             console.log("props", this.props)
@@ -112,34 +90,31 @@ class AnswerPage extends React.Component {
                         <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                    <h2 className="home-h2">My Answers</h2>
+                    <h2 className="home-h2">Update Answer</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    {
-                        myAnswers.map((answer, i) => {
-                            return (
-                                <div className="questions-show" key={i} >
+                      
+                                <div className="questions-show" >
                                     <br/>
                                     <br/>
                                     <h3>Question</h3>
-                                    <h4>{myQuestions[i].title}</h4>
-                                    <h4>{myQuestions[i].body}</h4>
+                                    <h4>{myQuestions[0].title}</h4>
+                                    <h4>{myQuestions[0].body}</h4>
                                     <br/>
                                     <h3>{user}'s Answer</h3>
-                                    <h3>{answer.body}</h3>
-                                    {/* < button onCLick={  }>Select Answer</button>  */}
-                                    {/* <button disabled={!this.state.selectedAnswer} onClick={() => this.eliminateAnswer(answer.id)}>Erase</button> */}
-                                    <button onClick={() => this.eliminateAnswer(answer.id)}>Erase</button>
+                                    <h3>{this.props.answers.answer.body}</h3>
                                     <br/>
+                                    <label>Update Answer
+                                     <br/>
+                                        <textarea
+                                                placeholder="enter here"
+                                                value={this.state.answerBody}
+                                                onChange={this.handleInput('answerBody')}
+                                            />
+                                    </label>
+                                    <button onClick={() => this.handleSubmit(this.props.answers.answer.id)}>Update Answer</button>
                                     <br/>
-                                    {/* <button onClick={() => this.targetAnswer(answer.id)}>Edit Answer</button>  */}
-                                     <button   value={this.state.body}
-                                            onClick={() => this.openAnswer(answer.id)}> Edit Answer
-                                        </button>           
-                                    <br/>
+                                
                                 </div>
-                            )
-                        })
-                    }
                 </div>
             );
         }else{
@@ -162,4 +137,4 @@ class AnswerPage extends React.Component {
     }
 };
 
-export default AnswerPage;
+export default UpdateAnswer;

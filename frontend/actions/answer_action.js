@@ -1,4 +1,4 @@
-import { getAnswers, newAnswer, deleteAnswer } from '../utils/answer_api_util';
+import { getAnswers, newAnswer, deleteAnswer, updateAnswer, getAnswer } from '../utils/answer_api_util';
 export const RECEIVE_ALL_ANSWERS = 'RECEIVE_ALL_ANSWERS';
 
 export const RECEIVE_ANSWER = 'RECEIVE_ANSWER';
@@ -12,7 +12,7 @@ const receiveAllAnswers = answers => ({
 
 const receiveAnswer = answer => ({
     type: RECEIVE_ANSWER,
-    question
+    answer
 });
 
 const postAnswer = answer => ({
@@ -30,18 +30,25 @@ export const eraseAnswer = id => dispatch => deleteAnswer(id);
 export const createAnswer = answer => dispatch => newAnswer(answer)
     .then(createdAnswer => dispatch(postAnswer(createdAnswer)));
 
+export const patchAnswer = (id,answer) => dispatch => {
+    return updateAnswer(id, answer)
+        .then(updatedAnswer => dispatch(receiveAnswer(updatedAnswer)));
+};
 
-
-// export const fetchQuestion = (questionId) => dispatch => {
-//         return getQuestion(questionId)
-//             .then(question => dispatch(receiveQuestion(question)));
-// };
+export const fetchAnswer = (id) => dispatch => {
+    return getAnswer(id)
+        .then(answer => dispatch(receiveAnswer(answer)));
+};
     
 export const fetchAnswers = () => dispatch => {
     return getAnswers()
         .then(answers => dispatch(receiveAllAnswers(answers)));
 };
 
+// export const fetchQuestions = () => dispatch => {
+//     return getQuestions()
+//         .then(questions => dispatch(receiveAllQuestions(questions)));
+// };
 // export const showQuestion = (id) => dispatch => {
 //     return getQuestion(id)
 //         .then(question => dispatch(openQuestion(question)));

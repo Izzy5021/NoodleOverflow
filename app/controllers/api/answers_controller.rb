@@ -25,17 +25,24 @@ end
       @answer = Answer.find(params[:id])
       # console.log("question from show", @question)
       if @answer 
-        render @answer
+        render json: {answer: @answer}
       else  
         render json: ["Answers not found"]
       end 
   end
 
   def update 
+    # debugger
     @answer = Answer.find(params[:id])
-    @answer.body = params[:body]
-    @answer.save
-    console.log("answers controller update")
+    if @answer.update_attributes(answer_params)
+        # p params[:id]
+        # p params[:answer][:body]
+        # p params[:question_id]
+        # p params[:author_id]
+        render @answer 
+    else  
+        render json: ["Answer was not updated"]
+    end
   end 
 
   def destroy 

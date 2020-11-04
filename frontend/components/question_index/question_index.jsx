@@ -57,9 +57,9 @@ class ShowPage extends React.Component {
             let id = Number(this.props.match.params.id);
             this.setState({id: id});
         }
-        console.log("state.id from update", this.state.id);
+        // console.log("state.id from update", this.state.id);
         if(prevProps.questions.currentQuestion !== this.props.questions.currentQuestion){
-            console.log("component did update")
+            // console.log("component did update")
             let {currentQuestion} = this.props.questions;
             this.setState({currentQuestion: currentQuestion});
         }

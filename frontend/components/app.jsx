@@ -9,6 +9,7 @@ import QuestionFormContainer from './questions/questionFormContainer';
 import HomePageContainer from './home_page/home_page_container';
 import ShowQuestionContainer from './question_index/question_index_container';
 import AnswerPageContainer from './answers/answers_container';
+import UpdateAnswerContainer from './answers/update_answers_container';
 
 export default () => (
     <div>
@@ -24,6 +25,7 @@ export default () => (
                 <ProtectedRoute exact path="/newQuestion" component={QuestionFormContainer} />
                 <ProtectedRoute exact path="/homePage" component={HomePageContainer} />
                 <ProtectedRoute exact path="/showQuestion/:id" component={ShowQuestionContainer} />
+                <ProtectedRoute exact path="/updateAnswer/:id" component={UpdateAnswerContainer} />
                 <ProtectedRoute exact path="/answerPage" component={AnswerPageContainer} />
             </Switch>
         </div>
