@@ -1,8 +1,8 @@
 import UpdateAnswer from './update_answers';
 import { fetchQuestions, fetchQuestion, showQuestion } from '../../actions/question_action';
 import { connect } from 'react-redux';
-import { fetchAnswers, fetchAnswer  } from '../../actions/answer_action';
-import { updateAnswer } from '../../utils/answer_api_util';
+import { fetchAnswers, fetchAnswer, patchAnswer  } from '../../actions/answer_action';
+// import { updateAnswer } from '../../utils/answer_api_util';
 
 
 const mapDispatchToProps = dispatch => ({
@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
     fetchAnswer: (id) => dispatch(fetchAnswer(id)),
     fetchAnswers: () => dispatch(fetchAnswers()),
     eraseAnswer: (id) => dispatch(eraseAnswer(id)),
-    updateAnswer: (id) => dispatch(updateAnswer(id))
+    updateAnswer: (id, answer) => dispatch(patchAnswer(id, answer))
     });
 
 

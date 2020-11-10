@@ -15,7 +15,7 @@ class UpdateAnswer extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         console.log("CONSTRUCTOR this.state:",this.state)
-        // console.log("constructror this.props", this.props)
+        console.log("constructror this.props", this.props)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -52,11 +52,11 @@ class UpdateAnswer extends React.Component {
     }
 
      handleSubmit(id) {
+        //  debugger 
         const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: this.props.answers.answer.question_id});
         console.log("answer and id", answer, id)
-        // this.props.updateAnswer(id, answer);
-        // this.setState({ answerBody: '', question_id: '', id: ''});
-        // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
+        this.props.updateAnswer(id, answer);
+        this.props.history.push('/answerPage');
 
     }
 
@@ -64,9 +64,9 @@ class UpdateAnswer extends React.Component {
         let answers = this.props.answers.answer ? this.props.answers.answer : [];
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
 
-        console.log("questions", questions)
+        console.log("this.props in render", this.props)
         // let {questions} = this.props; 
-        if(questions.length !== 0 ){
+        if(questions.length !== 0 && answers.length !== 0){
             // console.log("questions from render", questions)
             console.log("get in there...:", this.props)
             let myAnswers = []

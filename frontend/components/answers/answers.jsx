@@ -14,7 +14,7 @@ class AnswerPage extends React.Component {
         this.askQuestion = this.askQuestion.bind(this);
         this.eliminateAnswer = this.eliminateAnswer.bind(this);
         this.targetAnswer = this.targetAnswer.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.openAnswer = this.openAnswer.bind(this);
         console.log("CONSTRUCTOR this.state:",this.state)
@@ -50,31 +50,12 @@ class AnswerPage extends React.Component {
     }
 
      openAnswer(id) {
-        // e.preventDefault();
-    //    return (e) => {
-    //         this.setState({ [type]: e.target.value });
-    //     };
-        // this.props.showQuestion(id);
+     
         this.props.history.push(`/updateAnswer/${id}`);
     }
 
-     handleSubmit(id, questionId) {
-        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: questionId});
-        console.log("answer and id", answer, id)
-        // this.props.updateAnswer(id, answer);
-        // this.setState({ answerBody: '', question_id: '', id: ''});
-        // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
-
-    }
-    // handleSubmit(e) {
-    //  
-    //     const question = Object.assign({}, this.state);//, { author_id: this.props.author_id.id });
-    //     console.log("question", question)
-    //     this.props.createQuestion(question);
-    //     // this.setState({ body: '', title: '' });
-    //     // this.props.history.push('/');
-    //         // .then(() => this.props.history.push('/'));
-    // }
+     
+   
 
     render() {
         let answers = this.props.answers.arr ? this.props.answers.arr : [];
