@@ -41,11 +41,8 @@ export const fetchQuestions = () => dispatch => {
 };
 
 export const showQuestion = (id) => dispatch => {
-    console.log("im in the show quest action", id);
-    // todo: call api and get question object 
     return getQuestion(id)
         .then(question => dispatch(openQuestion(question)));
-    //return dispatch(openQuestion(id));
 }
 
 

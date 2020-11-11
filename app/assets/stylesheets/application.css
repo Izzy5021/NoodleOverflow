@@ -462,3 +462,15 @@ body {
     border-bottom: 1px solid #6f6b6b63;
     margin-left: 160px;
 }
+
+.button-link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}

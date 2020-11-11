@@ -23,8 +23,8 @@ export default (state = {}, action) => {
               return Object.assign({}, state, {arr: Object.assign([], state.arr, action.question)});
             // return Object.assign({}, state, { [action.question.id]: action.question });
         case RECEIVE_QUESTION:
-            console.log("Show quest questions reducer", action.questions)
-            return Object.assign({}, state, {arr: Object.assign([], state.arr, { [action.question.id] : action.question })});
+            console.log("Show quest questions reducer", action.question)
+            return Object.assign({}, state, {arr: Object.assign([], state.arr, { question : action.question })});
             // return Object.assign({}, state, { [action.question.id] : action.question });
         case SHOW_QUESTION: 
             console.log("case show question:", action.id)

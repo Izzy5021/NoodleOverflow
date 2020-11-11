@@ -4,7 +4,7 @@ def create
     @answer = Answer.new(answer_params)
     if @answer.save 
     #   render :show
-      render json: { message: "Answer saved"}
+      render json: {answer: @answer}
     else 
       render json: ["Answer body can't be blank"]
     end

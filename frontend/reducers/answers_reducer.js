@@ -23,7 +23,7 @@ export default (state = {}, action) => {
         //    return nextState[action.question.id] = action.question  
             
             //   return Object.assign({}, state, {arr: Object.assign([], state.arr, action.answer)});
-            return Object.assign({}, state, { [action.answer.id]: action.answer });
+            return Object.assign({}, state, { arr: action.answer });
         default:
         return state;
     }

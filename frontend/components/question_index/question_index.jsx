@@ -16,14 +16,7 @@ class ShowPage extends React.Component {
             let {currentQuestion} = props.questions
             this.setState({currentQuestion: currentQuestion});
         } 
-        // if (props.match.params.id){
-        //     let id = Number(props.match.params.id);
-        //     // ask Adrian 
-        //     //let {id} = props.match.params
-        //     this.setState({id: id});
-        // }
-
-        // this.openQuestion = this.openQuestion.bind(this);
+       
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         console.log("CONSTRUCTOR this.state:",this.state);
@@ -45,13 +38,15 @@ class ShowPage extends React.Component {
         console.log("answer", answer)
         this.props.createAnswer(answer);
         this.props.showQuestion(this.props.match.params.id)
+        let {currentQuestion} = this.props.questions;
+        this.setState({currentQuestion: currentQuestion});
         this.setState({ answerBody: ''});
         // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
-
     }
     // componentWillUnmount() { this.props.clearSessionErrors() }
 
     componentDidUpdate(prevProps, prevState) {
+        //  this.props.showQuestion(this.props.match.params.id)        
 
         if (prevProps.match.params.id !== this.props.match.params.id){
             let id = Number(this.props.match.params.id);
@@ -62,6 +57,17 @@ class ShowPage extends React.Component {
             // console.log("component did update")
             let {currentQuestion} = this.props.questions;
             this.setState({currentQuestion: currentQuestion});
+        }
+
+        if(this.props.questions.currentQuestion){
+            if(this.props.questions.currentQuestion.answers.length)
+            console.log("im in the component did update 2nd this.props", this.props)
+            console.log("im in the component did update 2nd prevProps", prevProps)
+            console.log("im in the component did update 2nd prevState", prevState)
+
+            // console.log("im in the component did update 2nd prevProps", prevProps.questions.currentQuestion.answers)
+            // let {currentQuestion} = this.props.questions;
+            // this.setState({currentQuestion: currentQuestion});
         }
     }
     componentDidMount() {  this.props.showQuestion(this.props.match.params.id)}
