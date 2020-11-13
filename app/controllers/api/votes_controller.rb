@@ -4,8 +4,8 @@ def create
     # @question = Question.new(question_params)
     @vote = Vote.new(vote_params)
     if @vote.save 
-    #   render :show
-      render json: ["lets go upvote champ"]
+   
+      render json: {vote: @vote}
       # render json: { message: "Question saved"}
     else 
       render json: ["Vote was unsuccessful"]
@@ -18,7 +18,7 @@ end
 
       # @questions = questions.includes(:author, :answers)
 
-      render json: votes
+      render json: {votes: votes} 
   end
 
   def show

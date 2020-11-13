@@ -6,16 +6,18 @@ class ShowPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentQuestion: null, 
+            targetAnswer: null, 
+            targetQuestion: null,
+            kmn: true,
             id: null,
             answerBody: ''
         }  
        
         console.log("window.location:", window.location);
-        if (props.questions.currentQuestion) {
-            let {currentQuestion} = props.questions
-            this.setState({currentQuestion: currentQuestion});
-        } 
+        // if (props.questions.currentQuestion) {
+        //     let {currentQuestion} = props.questions
+        //     this.setState({currentQuestion: currentQuestion});
+        // } 
        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -30,58 +32,51 @@ class ShowPage extends React.Component {
         };
     }
 
-     handleSubmit(e) {
-        e.preventDefault();
-        console.log("from handleSubmit this.props:", this.props)
-        console.log("from handleSubmit this.state:", this.state)
+     handleSubmit() {
         const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: Number(this.props.match.params.id)});//, { author_id: this.props.author_id.id });
-        console.log("answer", answer)
-        this.props.createAnswer(answer);
-        this.props.showQuestion(this.props.match.params.id)
-        let {currentQuestion} = this.props.questions;
-        this.setState({currentQuestion: currentQuestion});
-        this.setState({ answerBody: ''});
+        this.props.createAnswer(answer)
+            .then(() =>{
+                this.props.showQuestion(this.props.match.params.id).then(() => {this.setState({ answerBody: '', targetAnswer: this.props.questions.currentQuestion.answers})})
+            })
+         
+         
+        // this.props.showQuestion(this.props.match.params.id)
+        // this.setState({targetAnswer: this.props.questions.currentQuestion.answers});
+       
         // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
     }
     // componentWillUnmount() { this.props.clearSessionErrors() }
 
-    componentDidUpdate(prevProps, prevState) {
-        //  this.props.showQuestion(this.props.match.params.id)        
+    // componentDidUpdate(prevProps, prevState) {
+    //     //  this.props.showQuestion(this.props.match.params.id)        
 
-        if (prevProps.match.params.id !== this.props.match.params.id){
-            let id = Number(this.props.match.params.id);
-            this.setState({id: id});
-        }
-        // console.log("state.id from update", this.state.id);
-        if(prevProps.questions.currentQuestion !== this.props.questions.currentQuestion){
-            // console.log("component did update")
-            let {currentQuestion} = this.props.questions;
-            this.setState({currentQuestion: currentQuestion});
-        }
+    //     if (prevProps.match.params.id !== this.props.match.params.id){
+    //         let id = Number(this.props.match.params.id);
+    //         this.setState({id: id});
+    //     }
+    //     // console.log("state.id from update", this.state.id);
+    //     if(prevProps.questions.currentQuestion !== this.props.questions.currentQuestion){
+    //         // console.log("component did update")
+    //         let {currentQuestion} = this.props.questions;
+    //         this.setState({currentQuestion: currentQuestion});
+    //     }
 
-        if(this.props.questions.currentQuestion){
-            if(this.props.questions.currentQuestion.answers.length)
-            console.log("im in the component did update 2nd this.props", this.props)
-            console.log("im in the component did update 2nd prevProps", prevProps)
-            console.log("im in the component did update 2nd prevState", prevState)
-
-            // console.log("im in the component did update 2nd prevProps", prevProps.questions.currentQuestion.answers)
-            // let {currentQuestion} = this.props.questions;
-            // this.setState({currentQuestion: currentQuestion});
-        }
+   
+    // }
+    componentDidMount() {  
+        this.props.showQuestion(this.props.match.params.id)
+            .then(() =>this.setState({targetAnswer: this.props.questions.currentQuestion.answers, targetQuestion: this.props.questions.currentQuestion.question }))
     }
-    componentDidMount() {  this.props.showQuestion(this.props.match.params.id)}
     
   
 
     render() {
-        let {currentQuestion} = this.state;
-        console.log("currentQuestion,", currentQuestion)
+        // debugger
+        let {targetAnswer, targetQuestion} = this.state;
+        
+        // console.log("currentQuestion,", currentQuestion)
         // console.log("this.props.entities", this.props.entities)
-        if(currentQuestion){
-            // console.log("currentQuestion", this.props)
-        
-        
+        if(targetAnswer){
             return (
                 <div>
                     <div className="sidenav">
@@ -97,17 +92,17 @@ class ShowPage extends React.Component {
                             <br/>
                             <br/>
                                 
-                            {currentQuestion.question.title}
+                            {targetQuestion.title} 
                                 <br/>
                                 <br/>
-                            {currentQuestion.question.body}
-
+                            {targetQuestion.body}
+​
                             <br/>
                             <br/>      
                         </div>
-                   <h2 className="home-h2">{currentQuestion.answers.length} Answers</h2>  
+                   <h2 className="home-h2">{targetAnswer.length} Answers</h2>  
                    {/* <hr className="answers-show"/> */}
-                    {   currentQuestion.answers.map((answer, i) => {
+                    {   targetAnswer.map((answer, i) => {
                             return (
                                 <div className="answers-show" key={i} >
                                     <br/>
