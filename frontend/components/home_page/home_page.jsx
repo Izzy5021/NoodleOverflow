@@ -27,6 +27,7 @@ class HomePage extends React.Component {
 
     render() {
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
+        console.log("questions from render", questions)
         if( questions.length !==0 ){
             console.log("get in there...:", questions[1].title)
         
@@ -66,7 +67,7 @@ class HomePage extends React.Component {
             return(
                 <div>
                     <div className="sidenav">
-                        <a href="#about">About</a>
+                        <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
                         <a href="#/answerPage">My Answers</a>

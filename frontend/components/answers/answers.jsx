@@ -7,8 +7,9 @@ class AnswerPage extends React.Component {
          this.state = {
             question_id : '',
             author_id: Number(props.author_id),
+            username: props.username,
             selectedAnswerId: null,
-            answerBody: '',
+            answerBody: false,
             answerId: ''
         };
         this.askQuestion = this.askQuestion.bind(this);
@@ -31,8 +32,11 @@ class AnswerPage extends React.Component {
 
     eliminateAnswer(id){
         console.log("id from eliminate answer", id)
-        // e.preventDefault();
-        this.props.eraseAnswer(id);
+    
+        this.props.eraseAnswer(id)
+            .then(() =>{
+                this.props.fetchAnswers().then(() => {this.setState({ answerBody: true})})
+            })
     }
 
     

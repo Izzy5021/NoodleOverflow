@@ -33,17 +33,11 @@ class ShowPage extends React.Component {
     }
 
      handleSubmit() {
-        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: Number(this.props.match.params.id)});//, { author_id: this.props.author_id.id });
+        const answer = Object.assign({}, {username: this.props.currentUser.username}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: Number(this.props.match.params.id)});//, { author_id: this.props.author_id.id });
         this.props.createAnswer(answer)
             .then(() =>{
                 this.props.showQuestion(this.props.match.params.id).then(() => {this.setState({ answerBody: '', targetAnswer: this.props.questions.currentQuestion.answers})})
             })
-         
-         
-        // this.props.showQuestion(this.props.match.params.id)
-        // this.setState({targetAnswer: this.props.questions.currentQuestion.answers});
-       
-        // this.props.history.push(`/showQuestion/${Number(this.props.match.params.id)}`);
     }
     // componentWillUnmount() { this.props.clearSessionErrors() }
 

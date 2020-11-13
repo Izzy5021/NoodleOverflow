@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.currentUserId],
     questions:  state.entities.questions,
-    answers: state.entities.answers
+    answers: state.entities.answers,
+    username: state.entities.users[state.session.currentUserId].username
 });
 
 

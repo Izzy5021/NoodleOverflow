@@ -53,10 +53,12 @@ class UpdateAnswer extends React.Component {
 
      handleSubmit(id) {
         //  debugger 
-        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: this.props.answers.answer.question_id});
+        const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {username: this.props.currentUser.username}, {question_id: this.props.answers.answer.question_id});
         console.log("answer and id", answer, id)
-        this.props.updateAnswer(id, answer);
-        this.props.history.push('/answerPage');
+        this.props.updateAnswer(id, answer)
+            .then(() => {
+                this.props.history.push('/answerPage')
+            })
 
     }
 

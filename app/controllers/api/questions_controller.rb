@@ -34,7 +34,7 @@ end
   private
 
   def question_params
-    params.require(:question).permit(:body,:title,:author_id)
+    params.require(:question).permit(:body,:title,:author_id, :username)
   end
 
 end

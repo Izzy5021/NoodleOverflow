@@ -14,6 +14,7 @@ export default (state = {}, action) => {
             // });
             // should i entirely replace state here without assigning the id as a key in the obj ask Sami????
             // return action.questions
+            console.log("state from receive all questions reducer", state)
             return {arr: action.questions};
         case POST_QUESTION:
         //    return nextState[action.question.id] = action.question  
