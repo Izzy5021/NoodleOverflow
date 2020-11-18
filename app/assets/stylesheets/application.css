@@ -170,7 +170,7 @@ input[type=submit]:hover {
     /* background-image: url("frontend/components/landing_page/stackoverpic.svg"); */
     background-repeat: no-repeat;
     background-position: top center;
-    height: 420px;
+    /* height: 420px; */
 }
 
 .landing-h1 {
@@ -415,7 +415,7 @@ body {
 }
 
 .askQuestion {
-    margin-right: 25%;
+    margin-right: 10%;
     float: right;
   display: block;
   padding: 12px 28px;
@@ -427,7 +427,17 @@ body {
 }
 
 .home-h2 {
-    margin-left: 20%;
+    margin-left: 39%;
+    display: inline-block;
+}
+
+.question-h2 {
+    margin-left: 41%;
+    display: inline-block;
+}
+
+.answers-h2 {
+     margin-left: 50%;
     display: inline-block;
 }
 
@@ -436,8 +446,24 @@ body {
     text-align: center;
     border-bottom: 1px solid #6f6b6b63;
     margin-left: 160px;
+    padding-bottom: 8%;
+
 }
 
+.float-child {
+     width: 75%;
+    float: left;
+    padding: 20px;
+    border: 2px ;
+}
+
+.float-child-r {
+     width: 15%;
+    float: left;
+    padding: 20px;
+    border: 2px ;
+    font-size: small;
+}
 
 .loading {
     margin-left: 50%;
@@ -445,6 +471,7 @@ body {
 
 .answer-form {
     margin-left: 25%;
+    width: 60%; 
 }
 
 .question-form {
@@ -460,7 +487,7 @@ body {
     margin: auto;
     text-align: center;
     border-bottom: 1px solid #6f6b6b63;
-    margin-left: 160px;
+    margin-left: -12%;
 }
 
 .button-link {
@@ -473,4 +500,19 @@ body {
   color: #069;
   text-decoration: underline;
   cursor: pointer;
+  font-size: large;
+}
+
+.update-button {
+    background-color: #e1ecf4;
+    color: #39739d;
+    border-color: transparent;
+    border-radius: 4px;
+}
+
+.erase-button {
+    background-color: #e1ecf4;
+    color: #39739d;
+    border-color: transparent;
+    border-radius: 4px;
 }

@@ -113,7 +113,7 @@ class UpdateAnswer extends React.Component {
                                                 onChange={this.handleInput('answerBody')}
                                             />
                                     </label>
-                                    <button onClick={() => this.handleSubmit(this.props.answers.answer.id)}>Update Answer</button>
+                                    <button className="update-button" onClick={() => this.handleSubmit(this.props.answers.answer.id)}>Update Answer</button>
                                     <br/>
                                 
                                 </div>

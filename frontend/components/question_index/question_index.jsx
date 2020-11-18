@@ -8,6 +8,8 @@ class ShowPage extends React.Component {
         this.state = {
             targetAnswer: null, 
             targetQuestion: null,
+            currentUser: props.currentUser.id, 
+            // answers: null, 
             kmn: true,
             id: null,
             answerBody: ''
@@ -18,9 +20,10 @@ class ShowPage extends React.Component {
         //     let {currentQuestion} = props.questions
         //     this.setState({currentQuestion: currentQuestion});
         // } 
-       
+       this.askQuestion = this.askQuestion.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.edit = this.edit.bind(this);
         console.log("CONSTRUCTOR this.state:",this.state);
         console.log("constructror this.props", this.props);
     }
@@ -38,6 +41,16 @@ class ShowPage extends React.Component {
             .then(() =>{
                 this.props.showQuestion(this.props.match.params.id).then(() => {this.setState({ answerBody: '', targetAnswer: this.props.questions.currentQuestion.answers})})
             })
+    }
+
+    askQuestion(e) {
+        e.preventDefault();
+        this.props.history.push('/newQuestion');
+    }
+
+    edit(e){
+        e.preventDefault();
+        this.props.history.push('/answerPage');
     }
     // componentWillUnmount() { this.props.clearSessionErrors() }
 
@@ -57,19 +70,27 @@ class ShowPage extends React.Component {
 
    
     // }
-    componentDidMount() {  
+    componentDidMount() { 
+        this.props.fetchVotes(); 
         this.props.showQuestion(this.props.match.params.id)
             .then(() =>this.setState({targetAnswer: this.props.questions.currentQuestion.answers, targetQuestion: this.props.questions.currentQuestion.question }))
+            
     }
     
   
 
     render() {
         // debugger
+        // const answers = this.props.entities.questions.currentQuestion.answers
+        // const answersVotes = []
+        // for( let i = 0; i < answers.length; i++){
+        //     answersVotes.push(this.props.fetchAnswer(answers[i].id))
+        // }
+        
         let {targetAnswer, targetQuestion} = this.state;
         
         // console.log("currentQuestion,", currentQuestion)
-        // console.log("this.props.entities", this.props.entities)
+        console.log("this.props in render", this.state)
         if(targetAnswer){
             return (
                 <div>
@@ -80,29 +101,44 @@ class ShowPage extends React.Component {
                         <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                    <h2 className="home-h2">Question</h2>
-                 
+                    <h2 className="question-h2">Question</h2>
+                    <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
+
                         <div className="questions-show"  >
-                            <br/>
-                            <br/>
-                                
+                        <div className="float-child">
                             {targetQuestion.title} 
                                 <br/>
                                 <br/>
                             {targetQuestion.body}
-​
                             <br/>
                             <br/>      
+                        </div>   
+                        <div className="float-child-r">
+                                          asked by {targetQuestion.username},&nbsp;  
+                                            {targetQuestion.created_at}
+                        </div> 
                         </div>
-                   <h2 className="home-h2">{targetAnswer.length} Answers</h2>  
+                        
+                   <h2 className="question-h2">{targetAnswer.length} Answers</h2>  
                    {/* <hr className="answers-show"/> */}
                     {   targetAnswer.map((answer, i) => {
                             return (
-                                <div className="answers-show" key={i} >
-                                    <br/>
-                                    {answer.body}
-                                    <br/>
-                                    <br/>
+                                <div className="questions-show" key={i} >
+                                    <div className="float-child">
+                                        <br/>
+                                        {answer.body}
+                                        <br/>
+                                        <br/>
+                                        {this.state.currentUser === answer.author_id ?  <button disabled={this.state.currentUser !== answer.author_id} className="update-button" onClick={this.edit}>Edit Your Answer</button> : <br/>}
+                                        {/* <button disabled={this.state.currentUser !== answer.author_id} className="update-button" onClick={this.edit}>Edit Your Answer</button> */}
+                                        {/* <button className="update-button" onClick={this.edit}>Edit Your Answer</button> */}
+                                        <br/>
+                                        <br/>
+                                    </div>
+                                    <div className="float-child-r">
+                                          answered by {answer.username},&nbsp;  
+                                            {answer.created_at}
+                                    </div> 
                                 </div>
                             )
                          })
@@ -111,14 +147,14 @@ class ShowPage extends React.Component {
                 <div className="answer-form" >
                     <form>
                         <br/>
-                        <label>Your Answer
-                        <textarea
+                        <label className="answer-label">Your Answer
+                        <textarea className="text-area"
                                 placeholder="enter here"
                                 value={this.state.answerBody}
                                 onChange={this.handleInput('answerBody')}
                             />
                         </label>
-                        <button onClick={this.handleSubmit}>Post Your Answer</button>
+                        <button className="update-button" onClick={this.handleSubmit}>Post Your Answer</button>
                     </form>
                  </div>
             </div>

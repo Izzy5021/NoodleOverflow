@@ -1,9 +1,9 @@
-import { upVote, getVotes, getVote } from '../utils/vote_api_util';
+import { upVote, getVotes, getVote, deleteVote } from '../utils/vote_api_util';
 
 export const RECEIVE_VOTES = 'RECEIVE_VOTES';
 export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 export const POST_VOTE = 'POST_VOTE';
-
+export const DELETE_VOTE = 'DELETE_VOTE';
 
 const receiveVotes = votes => ({
     type: RECEIVE_VOTES,
@@ -19,6 +19,10 @@ const postVote = vote => ({
     type: POST_VOTE,
     vote
 });
+
+const eliminateVote = answer => ({
+    type: DELETE_VOTE
+})
 
 // const openQuestion = id => ({
 //     type: SHOW_QUESTION,
@@ -39,6 +43,11 @@ export const fetchVotes = () => dispatch => {
         .then(votes => dispatch(receiveVotes(votes)));
 };
 
+
+export const eraseVote = (id) => dispatch => {
+    return deleteVote(id)
+        .then(deletedVote => dispatch(eliminateVote()))
+};
 // export const showQuestion = (id) => dispatch => {
 //     return getQuestion(id)
 //         .then(question => dispatch(openQuestion(question)));

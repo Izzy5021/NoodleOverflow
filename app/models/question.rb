@@ -10,4 +10,8 @@ class Question < ApplicationRecord
     primary_key: :id, 
     foreign_key: :question_id, 
     class_name: :Answer 
+
+    def created_at
+         attributes['created_at'].strftime("%m/%d/%Y %I:%M%p")
+    end
 end

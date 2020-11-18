@@ -17,4 +17,9 @@ class Answer < ApplicationRecord
     primary_key: :id, 
     foreign_key: :answer_id, 
     class_name: :Vote 
+
+     def created_at
+         attributes['created_at'].strftime("%m/%d/%Y %I:%M%p")
+    end
+    
 end

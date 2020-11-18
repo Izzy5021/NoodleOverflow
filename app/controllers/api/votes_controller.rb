@@ -33,6 +33,15 @@ end
     #   end 
   end
 
+  def destroy 
+    p "im in the destroy controller" 
+    @vote = Vote.find(params[:id])
+    if @vote.destroy
+      render json: { message: "vote deleted"}
+    else 
+      render json: ["Vote deletion unsuccessful"]
+    end
+  end 
 
   private
 

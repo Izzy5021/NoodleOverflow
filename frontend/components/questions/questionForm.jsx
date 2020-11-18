@@ -93,7 +93,7 @@ class QuestionForm extends React.Component {
                                 onChange={this.handleInput('body')}
                             />
                         </label>
-                        <button onClick={this.handleSubmit}>Create Question</button>
+                        <button className="update-button" onClick={this.handleSubmit}>Create Question</button>
                     </form>
                     {/* <div className="login-form-errors">{this.handleErrors()} </div> */}
                 </div>

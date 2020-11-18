@@ -28,3 +28,10 @@ export const getVote = (id) => {
         method: 'GET'
     });
 };
+
+export const deleteVote = (id) => {
+    return $.ajax({
+        url: `/api/votes/${id}`,
+        method: 'DELETE'
+    });
+};

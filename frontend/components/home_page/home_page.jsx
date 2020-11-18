@@ -49,10 +49,16 @@ class HomePage extends React.Component {
                                     <div className="questions-show" key={i} >
                                         <br/>
                                         <br/>
+                                        <div className="float-child">
                                         <button  className="button-link" value={this.state.body}
                                         //    onClick={() => sayHello('James')}
                                             onClick={() => this.openQuestion(question.id)}> {question.title}
                                         </button>
+                                        </div>
+                                        <div className="float-child-r">
+                                          asked by {question.username},&nbsp;  
+                                            {question.created_at}
+                                        </div>
                                         {/* {question.title} */}
                                         <br/>
                                         <br/>

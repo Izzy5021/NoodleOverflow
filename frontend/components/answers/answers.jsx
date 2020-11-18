@@ -97,7 +97,7 @@ class AnswerPage extends React.Component {
                         <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                    <h2 className="home-h2">My Answers</h2>
+                    <h2 className="answers-h2">My Answers</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
                     {
                         myAnswers.map((answer, i) => {
@@ -111,15 +111,12 @@ class AnswerPage extends React.Component {
                                     <br/>
                                     <h3>{user}'s Answer</h3>
                                     <h3>{answer.body}</h3>
-                                    {/* < button onCLick={  }>Select Answer</button>  */}
-                                    {/* <button disabled={!this.state.selectedAnswer} onClick={() => this.eliminateAnswer(answer.id)}>Erase</button> */}
-                                    <button onClick={() => this.eliminateAnswer(answer.id)}>Erase</button>
-                                    <br/>
-                                    <br/>
-                                    {/* <button onClick={() => this.targetAnswer(answer.id)}>Edit Answer</button>  */}
-                                     <button   value={this.state.body}
+                                     <button className="update-button"  value={this.state.body}
                                             onClick={() => this.openAnswer(answer.id)}> Edit Answer
-                                        </button>           
+                                        </button>    
+                                    <br/>
+                                    <br/>
+                                    <button className="erase-button" onClick={() => this.eliminateAnswer(answer.id)}>Erase</button>       
                                     <br/>
                                 </div>
                             )
