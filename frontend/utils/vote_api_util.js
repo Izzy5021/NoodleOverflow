@@ -12,7 +12,7 @@ export const upVote = (vote) => {
     return $.ajax({
         url: 'api/votes',
         method: 'POST', 
-        data: { vote: vote}
+        data: {vote: vote}
     });
 };
 export const getVotes = () => {

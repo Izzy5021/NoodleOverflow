@@ -457,6 +457,7 @@ body {
     border: 2px ;
 }
 
+
 .float-child-r {
      width: 15%;
     float: left;
@@ -465,6 +466,28 @@ body {
     font-size: small;
 }
 
+
+.float-child-left-favicon {
+     width: 10%;
+    float: left;
+    padding: 20px;
+    border: 2px ;
+}
+
+.float-child-favicon {
+     width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px ;
+}
+
+.float-child-right-favicon {
+     width: 15%;
+    float: left;
+    padding: 20px;
+    border: 2px ;
+    font-size: small;
+}
 .loading {
     margin-left: 50%;
 }
@@ -472,6 +495,7 @@ body {
 .answer-form {
     margin-left: 25%;
     width: 60%; 
+    margin-top: 5%;
 }
 
 .question-form {

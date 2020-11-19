@@ -9,7 +9,7 @@ class ShowPage extends React.Component {
             targetAnswer: null, 
             targetQuestion: null,
             currentUser: props.currentUser.id, 
-            // answers: null, 
+            votes: null, 
             kmn: true,
             id: null,
             answerBody: ''
@@ -20,6 +20,8 @@ class ShowPage extends React.Component {
         //     let {currentQuestion} = props.questions
         //     this.setState({currentQuestion: currentQuestion});
         // } 
+        this.downVote = this.downVote.bind(this);
+        this.upVote = this.upVote.bind(this);
        this.askQuestion = this.askQuestion.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -37,10 +39,29 @@ class ShowPage extends React.Component {
 
      handleSubmit() {
         const answer = Object.assign({}, {username: this.props.currentUser.username}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {question_id: Number(this.props.match.params.id)});//, { author_id: this.props.author_id.id });
+        console.log("answer:", answer)
         this.props.createAnswer(answer)
             .then(() =>{
                 this.props.showQuestion(this.props.match.params.id).then(() => {this.setState({ answerBody: '', targetAnswer: this.props.questions.currentQuestion.answers})})
             })
+    }
+
+    upVote(id){
+        const vote = Object.assign({}, {answer_id: id}, {user_id: this.props.currentUser.id}, {value: 1})
+        console.log("vote from upvote", vote )
+        this.props.createVote(vote)
+            .then(()=> {
+                 this.props.fetchVotes().then(() => {this.setState({votes: this.props.votes.arr.votes})})
+            // .then(() => this.setState({votes: this.props.votes.arr.votes}))
+            });
+    }
+
+    downVote(id){
+        this.props.eraseVote(id)
+            .then(()=> {
+                 this.props.fetchVotes().then(() => {this.setState({votes: this.props.votes.arr.votes})})
+            // .then(() => this.setState({votes: this.props.votes.arr.votes}))
+            });
     }
 
     askQuestion(e) {
@@ -71,10 +92,14 @@ class ShowPage extends React.Component {
    
     // }
     componentDidMount() { 
-        this.props.fetchVotes(); 
-        this.props.showQuestion(this.props.match.params.id)
+        this.props.fetchVotes()
+            .then(() => this.setState({votes: this.props.votes.arr.votes}))
+            .then(() => this.props.showQuestion(this.props.match.params.id))
             .then(() =>this.setState({targetAnswer: this.props.questions.currentQuestion.answers, targetQuestion: this.props.questions.currentQuestion.question }))
-            
+        
+        // this.props.fetchVotes() 
+        //     .then(() => this.setState({votes: this.props.entities.votes.arr.votes}))
+        //     .then(() => console.log("this.props", this.state))
     }
     
   
@@ -82,16 +107,29 @@ class ShowPage extends React.Component {
     render() {
         // debugger
         // const answers = this.props.entities.questions.currentQuestion.answers
-        // const answersVotes = []
+        const voteCounts = {}
         // for( let i = 0; i < answers.length; i++){
         //     answersVotes.push(this.props.fetchAnswer(answers[i].id))
         // }
         
         let {targetAnswer, targetQuestion} = this.state;
         
+        
         // console.log("currentQuestion,", currentQuestion)
-        console.log("this.props in render", this.state)
         if(targetAnswer){
+
+            for (let i = 0; i < this.state.votes.length; i++){
+                    if( voteCounts[this.state.votes[i].answer_id] === undefined){
+                            voteCounts[this.state.votes[i].answer_id] = [this.state.votes[i]] 
+                    }else {
+                        voteCounts[this.state.votes[i].answer_id].push(this.state.votes[i])
+                    }
+            }
+                    
+                    
+                    
+            console.log("vote Counts", voteCounts)
+            // console.log("this.props.votes in render", this.props.votes.arr.votes)
             return (
                 <div>
                     <div className="sidenav">
@@ -114,8 +152,8 @@ class ShowPage extends React.Component {
                             <br/>      
                         </div>   
                         <div className="float-child-r">
-                                          asked by {targetQuestion.username},&nbsp;  
-                                            {targetQuestion.created_at}
+                            asked by {targetQuestion.username},&nbsp;  
+                            {targetQuestion.created_at}
                         </div> 
                         </div>
                         
@@ -124,7 +162,15 @@ class ShowPage extends React.Component {
                     {   targetAnswer.map((answer, i) => {
                             return (
                                 <div className="questions-show" key={i} >
-                                    <div className="float-child">
+                                    <div className="float-child-left-favicon">
+                                    <button onClick={() => this.upVote(answer.id)} className="fav-btn"><i className="fas fa-caret-up"></i></button>
+                                    {/* <i onClick={this.upVote(answer.id)} className="fas fa-caret-up"></i> */}
+                                    <br/>
+                                    {voteCounts[answer.id] === undefined ? 0 : voteCounts[answer.id].length}
+                                    <br/>
+                                    <button onClick={() => this.downVote(answer.id)} className="fav-btn"><i className="fas fa-caret-down"></i></button>
+                                    </div>
+                                    <div className="float-child-favicon">
                                         <br/>
                                         {answer.body}
                                         <br/>
@@ -133,9 +179,8 @@ class ShowPage extends React.Component {
                                         {/* <button disabled={this.state.currentUser !== answer.author_id} className="update-button" onClick={this.edit}>Edit Your Answer</button> */}
                                         {/* <button className="update-button" onClick={this.edit}>Edit Your Answer</button> */}
                                         <br/>
-                                        <br/>
                                     </div>
-                                    <div className="float-child-r">
+                                    <div className="float-child-right-favicon">
                                           answered by {answer.username},&nbsp;  
                                             {answer.created_at}
                                     </div> 

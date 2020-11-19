@@ -29,8 +29,10 @@ const eliminateVote = answer => ({
 //     id
 // });
 
-export const createVote = vote => dispatch => upVote(vote)
-    .then(createdvote => dispatch(postVote(createdvote)));
+export const createVote = vote => dispatch => {
+    return upVote(vote)
+         .then(createdvote => dispatch(postVote(createdvote)));
+};
 
 
 export const fetchVote = (id) => dispatch => {
