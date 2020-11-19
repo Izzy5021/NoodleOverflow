@@ -12,14 +12,12 @@ class ShowPage extends React.Component {
             votes: null, 
             kmn: true,
             id: null,
+            voteAnalytics: '',
             answerBody: ''
         }  
        
         console.log("window.location:", window.location);
-        // if (props.questions.currentQuestion) {
-        //     let {currentQuestion} = props.questions
-        //     this.setState({currentQuestion: currentQuestion});
-        // } 
+       
         this.downVote = this.downVote.bind(this);
         this.upVote = this.upVote.bind(this);
        this.askQuestion = this.askQuestion.bind(this);
@@ -56,12 +54,29 @@ class ShowPage extends React.Component {
             });
     }
 
-    downVote(id){
-        this.props.eraseVote(id)
-            .then(()=> {
-                 this.props.fetchVotes().then(() => {this.setState({votes: this.props.votes.arr.votes})})
-            // .then(() => this.setState({votes: this.props.votes.arr.votes}))
-            });
+    downVote(answerId){
+        const voteAnalytics = {}
+         if (this.state.votes){
+            for (let i = 0; i < this.state.votes.length; i++){
+                      if( voteAnalytics[this.state.votes[i].answer_id] === undefined){
+                              voteAnalytics[this.state.votes[i].answer_id] = [this.state.votes[i]] 
+                      }else {
+                          voteAnalytics[this.state.votes[i].answer_id].push(this.state.votes[i])
+                      }
+              }
+              console.log("vote Analytics inside constructor", voteAnalytics)
+        }
+      
+        for (let j = 0; j < voteAnalytics[answerId].length; j++){
+            console.log("author id in downvote func", voteAnalytics[answerId][j].user_id)
+            if (voteAnalytics[answerId][j].user_id === this.state.currentUser){
+                this.props.eraseVote(voteAnalytics[answerId][j].id)
+                    .then(()=> {
+                        this.props.fetchVotes().then(() => {this.setState({votes: this.props.votes.arr.votes})})
+                    });
+            }
+        }
+        
     }
 
     askQuestion(e) {
@@ -126,7 +141,8 @@ class ShowPage extends React.Component {
                     }
             }
                     
-                    
+            //  this.setState({voteAnalytics: voteCounts}) 
+            //  this.setState({currentQuestion: currentQuestion});      
                     
             console.log("vote Counts", voteCounts)
             // console.log("this.props.votes in render", this.props.votes.arr.votes)
@@ -168,6 +184,8 @@ class ShowPage extends React.Component {
                                     <br/>
                                     {voteCounts[answer.id] === undefined ? 0 : voteCounts[answer.id].length}
                                     <br/>
+                                    {/* { for (let i = 0; i < voteAnalytics[answerId].length; i++){
+                                                if (voteAnalytics[answerId][i].author_id === this.state.currentUser){}}} */}
                                     <button onClick={() => this.downVote(answer.id)} className="fav-btn"><i className="fas fa-caret-down"></i></button>
                                     </div>
                                     <div className="float-child-favicon">
