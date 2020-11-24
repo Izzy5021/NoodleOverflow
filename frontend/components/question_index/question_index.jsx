@@ -169,6 +169,7 @@ class ShowPage extends React.Component {
                         </div>   
                         <div className="float-child-r">
                             asked by {targetQuestion.username},&nbsp;  
+                            <br/>
                             {targetQuestion.created_at}
                         </div> 
                         </div>
@@ -200,6 +201,7 @@ class ShowPage extends React.Component {
                                     </div>
                                     <div className="float-child-right-favicon">
                                           answered by {answer.username},&nbsp;  
+                                          <br/>
                                             {answer.created_at}
                                     </div> 
                                 </div>

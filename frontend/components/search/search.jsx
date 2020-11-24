@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
+// import VideoIndexItem from '../VideosIndex/videoIndexItem'
 
-
-class HomePage extends React.Component {
-    constructor(props) {
+class SearchPage extends React.Component{
+     constructor(props) {
         super(props);
          this.state = {
             question_id : '',
@@ -26,11 +26,24 @@ class HomePage extends React.Component {
     }
 
     render() {
+          
+       
+        let search = this.props.location.pathname.slice(8)
+        console.log(search)
+        // debugger
+        
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
         console.log("questions from render", questions)
         if( questions.length !==0 ){
             console.log("get in there...:", questions[1].title)
-        
+            // if( searchQuestions.length !==0 && search.length !== 0 && questions.length !==0 ){
+                // console.log("get in there...:", questions[1].title)
+                
+            let searchQuestions = questions.filter(question =>(
+                question.title.toLowerCase().includes(search.toLowerCase())
+            ));
+
+            console.log("searchQuestions:", searchQuestions)
         
             return (
                 <div>
@@ -43,31 +56,17 @@ class HomePage extends React.Component {
                     </div>
                     <h2 className="home-h2">Top Questions</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    {
-                            questions.map((question, i) => {
-                                return (
-                                    <div className="questions-show" key={i} >
-                                        <br/>
-                                        <br/>
-                                        <div className="float-child">
-                                        <button  className="button-link" value={this.state.body}
-                                        //    onClick={() => sayHello('James')}
-                                            onClick={() => this.openQuestion(question.id)}> {question.title}
-                                        </button>
-                                        </div>
-                                        <div className="float-child-r">
-                                          asked by {question.username},&nbsp;  
-                                            <br/>
-                                            {question.created_at}
-                                        </div>
-                                        {/* {question.title} */}
-                                        <br/>
-                                        <br/>
-                                   
+                    <strong className='SearchTitle'>Your Search: {search}</strong>
+                    <div >
+                            {
+                                searchQuestions.map(question => (
+                                    // <VideoIndexItem key={video.id} video={video} history={history} addToList={addToList} deleteFromList={deleteFromList} mylist={mylist} />
+                                    <div>
+                                        {question.title} 
                                     </div>
-                                )
-                            })
-                        }
+                                )) }
+                            
+                    </div>
                 </div>
             );
         }else{
@@ -88,6 +87,6 @@ class HomePage extends React.Component {
             )
         }
     }
-};
+}
 
-export default HomePage;
+export default SearchPage;

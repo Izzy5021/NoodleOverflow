@@ -5,9 +5,30 @@ class Navbar extends React.Component {
     
     constructor(props){
         super(props);
+        this.state = {
+            search: ''
+        }
         this.handleDemo = this.handleDemo.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        setTimeout((() => {
+            if (this.state.search === "") {
+                this.props.history.push("/homePage");
+            } else {
+                this.props.history.push(`/search/${this.state.search}`);
+            }
+        }), 300);
+    }
+
+    handleUpdate(e) {
+        this.setState({
+            search: e.currentTarget.value
+        });
+    }
 
     handleDemo(e){
         //e.preventDefault();
@@ -29,8 +50,10 @@ class Navbar extends React.Component {
                     <div className="nav-logged-1">
                     <p className="greet">Hello, {this.props.currentUser.username}</p>
                     </div >
-                    <div className="nav-logged-2">
-                        
+                    <div className="nav-logged-1">
+                    <form className="nav-logged-1" onChange={this.handleSubmit}>
+                        <input className='searchbar hidden' placeholder='Search' value={this.state.search} onChange={this.handleUpdate} type="text" onMouseLeave={this.toggleSearchClick}/>
+                    </form> 
                     {/* <button className="nav-right" >log out</button> */}
                         <a onClick={() => this.props.logout().then(() => this.props.history.push('/'))} className="nav-right">Log out</a>
                     </div>

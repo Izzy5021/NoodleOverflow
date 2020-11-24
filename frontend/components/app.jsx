@@ -10,6 +10,8 @@ import HomePageContainer from './home_page/home_page_container';
 import ShowQuestionContainer from './question_index/question_index_container';
 import AnswerPageContainer from './answers/answers_container';
 import UpdateAnswerContainer from './answers/update_answers_container';
+import SearchContainer from './search/search_container'
+
 
 export default () => (
     <div>
@@ -22,6 +24,7 @@ export default () => (
                 {/* <Route path="/" component={NavBarContainer} /> */}
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
+                <ProtectedRoute exact path="/search/:searchinput" component={SearchContainer}/>
                 <ProtectedRoute exact path="/newQuestion" component={QuestionFormContainer} />
                 <ProtectedRoute exact path="/homePage" component={HomePageContainer} />
                 <ProtectedRoute exact path="/showQuestion/:id" component={ShowQuestionContainer} />
