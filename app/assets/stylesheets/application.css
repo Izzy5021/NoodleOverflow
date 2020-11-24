@@ -139,8 +139,8 @@ input[type=submit]:hover {
 }
 
 .nav-loggedin {
-    /* display: flex; */
-    display: inline-block;
+    display: flex;
+    /* display: inline-block; */
     justify-content: space-between;
     align-items: center;
 }
@@ -224,6 +224,40 @@ h1 {
     font-family: arial;
 }
 
+.angel-list {
+    background-color: white;
+    border: 1.75px solid #FF9900;
+    font-size: 16px;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px; 
+    margin: 5px;
+    color: #FF9900;
+    font-family: arial;
+    text-decoration: none;
+    padding: 10px 30px;
+
+}
+
+searchbar hidden {
+    padding: 11px 30px;
+}
+.linkedin{
+    background-color: white;
+    border: 1.75px solid #FF9900;
+    font-size: 16px;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px; 
+    margin: 5px;
+    font: white;
+    background-color: #FF9900;
+    color: white;
+    font-family: arial;
+      text-decoration: none;
+      padding: 10px 30px;
+}
+
 .indeed {
     background-color: white;
     border: 1.75px solid #FF9900;
@@ -236,6 +270,7 @@ h1 {
     background-color: #FF9900;
     color: white;
     font-family: arial;
+    
 }
 
 .button-landing {
@@ -327,14 +362,14 @@ h1 {
   display: block;
   color: #424242;
   text-align: center;
-  padding: 14px 16px;
+  padding: 19.5px 16px;
   text-decoration: none;
   font-size: 17px;
   font-family: arial;
 }
 
 .nav-right {
-  float: left;
+  float: right;
   display: block;
   color: #424242;
   text-align: center;
@@ -433,6 +468,11 @@ body {
     display: inline-block;
 }
 
+.search-label {
+    margin-left: 40.5%;
+    display: inline-block;
+}
+
 .question-h2 {
     margin-left: 41%;
     display: inline-block;
@@ -465,7 +505,7 @@ body {
     float: left;
     padding: 20px;
     border: 2px ;
-    font-size: small;
+    font-size: medium;
 }
 
 

@@ -18,7 +18,7 @@ class Navbar extends React.Component {
         setTimeout((() => {
             if (this.state.search === "") {
                 this.props.history.push("/homePage");
-            } else {
+            } else if (this.state.search !== "" && this.state.search !== "/"){
                 this.props.history.push(`/search/${this.state.search}`);
             }
         }), 300);
@@ -50,14 +50,15 @@ class Navbar extends React.Component {
                     <div className="nav-logged-1">
                     <p className="greet">Hello, {this.props.currentUser.username}</p>
                     </div >
-                    <div className="nav-logged-1">
-                    <form className="nav-logged-1" onChange={this.handleSubmit}>
-                        <input className='searchbar hidden' placeholder='Search' value={this.state.search} onChange={this.handleUpdate} type="text" onMouseLeave={this.toggleSearchClick}/>
+                    <div className="nav-logged-2">
+                    <form className="nav-logged-2" onChange={this.handleSubmit}>
+                        <input className='searchbar hidden' placeholder="Search Questions" value={this.state.search} onChange={this.handleUpdate} type="text" onMouseLeave={this.toggleSearchClick}/>
                     </form> 
                     {/* <button className="nav-right" >log out</button> */}
                         <a onClick={() => this.props.logout().then(() => this.props.history.push('/'))} className="nav-right">Log out</a>
                     </div>
                 </div>
+               
             ) : (
                  <div className="nav-buttons-right">
                     <a  className="nav-right" onClick={() => this.handleDemo()}>Demo mode</a>

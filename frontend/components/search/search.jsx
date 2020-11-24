@@ -44,31 +44,74 @@ class SearchPage extends React.Component{
             ));
 
             console.log("searchQuestions:", searchQuestions)
-        
-            return (
-                <div>
-                    <div className="sidenav">
-                        <a href="#/homePage">Home</a>
-                        <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
-                        <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
-                        <a href="#/answerPage">My Answers</a>
-                        <a href="#/newQuestion">New Question</a>
+            if (searchQuestions.length !== 0){
+                return (
+                    <div>
+                        <div className="sidenav">
+                            <a href="#/homePage">Home</a>
+                            <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
+                            <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                            <a href="#/answerPage">My Answers</a>
+                            <a href="#/newQuestion">New Question</a>
+                        </div>
+                        <h2 className="home-h2">Top Questions</h2>
+                        <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
+                            <br/>
+                            <br/>
+                        <strong className='search-label'>Your Search: {search}</strong>
+                        <div >
+                                {
+                                    searchQuestions.map((question, i )=> (
+                                        // <div className="questions-show" key={i}>
+                                        //     {question.title} 
+                                        // </div>
+                                        <div className="questions-show" key={i} >
+                                            <br/>
+                                            <br/>
+                                            <div className="float-child">
+                                            <button  className="button-link" value={this.state.body}
+                                            //    onClick={() => sayHello('James')}
+                                                onClick={() => this.openQuestion(question.id)}> {question.title}
+                                            </button>
+                                            </div>
+                                            <div className="float-child-r">
+                                            asked by {question.username},&nbsp;  
+                                                <br/>
+                                                {question.created_at}
+                                            </div>
+                                            {/* {question.title} */}
+                                            <br/>
+                                            <br/>
+                                   
+                                        </div>
+                                        
+                                    ))
+                                }
+    
+                                
+                                
+                        </div>
                     </div>
-                    <h2 className="home-h2">Top Questions</h2>
-                    <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    <strong className='SearchTitle'>Your Search: {search}</strong>
-                    <div >
-                            {
-                                searchQuestions.map(question => (
-                                    // <VideoIndexItem key={video.id} video={video} history={history} addToList={addToList} deleteFromList={deleteFromList} mylist={mylist} />
-                                    <div>
-                                        {question.title} 
-                                    </div>
-                                )) }
-                            
+                );
+
+            }else{
+                return (
+                    <div>
+                        <div className="sidenav">
+                            <a href="#/homePage">Home</a>
+                            <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
+                            <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
+                            <a href="#/answerPage">My Answers</a>
+                            <a href="#/newQuestion">New Question</a>
+                        </div>
+                        <h2 className="home-h2">Top Questions</h2>
+                        <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
+                            <br/>
+                            <br/>
+                        <strong className='search-label'>Your Search: {search}</strong>
                     </div>
-                </div>
-            );
+                );
+            }
         }else{
             return(
                 <div>
