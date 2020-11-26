@@ -87,7 +87,19 @@ body {
 }
 
 input[type=text], select, textarea {
-    width: 100%;
+    /* width: 100%; */
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: arial;
+}
+
+.q-label {
+     width: 100%;
     padding: 11px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -239,9 +251,13 @@ h1 {
 
 }
 
-searchbar hidden {
+.search-bar {
     padding: 11px 30px;
+    transform: translateX(-40%);
+    width: 180%;
 }
+
+
 .linkedin{
     background-color: white;
     border: 1.75px solid #FF9900;
@@ -543,8 +559,13 @@ body {
 .question-form {
     margin-left: 25%;
     margin-right: 8%;
+   
 }
 
+form {
+    margin: 0 auto;
+    transform: translateX(-5%);
+}
 .question-form-header {
     margin-left: 50%;
 }

@@ -77,10 +77,11 @@ class QuestionForm extends React.Component {
                     </div>
                 <h2 className="question-form-header">Ask Question!</h2>
                 <div className="question-form">
-                    <form>
-                        <label>Question Title:
+                    <form className="form">
+                        <label >Question Title:
                         <input
                                 type='text'
+                                className="q-label"
                                 placeholder="enter question title"
                                 value={this.state.title}
                                 onChange={this.handleInput('title')}
