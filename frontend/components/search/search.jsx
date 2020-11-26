@@ -30,14 +30,10 @@ class SearchPage extends React.Component{
        
         let search = this.props.location.pathname.slice(8)
         console.log(search)
-        // debugger
         
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
         console.log("questions from render", questions)
         if( questions.length !==0 ){
-            console.log("get in there...:", questions[1].title)
-            // if( searchQuestions.length !==0 && search.length !== 0 && questions.length !==0 ){
-                // console.log("get in there...:", questions[1].title)
                 
             let searchQuestions = questions.filter(question =>(
                 question.title.toLowerCase().includes(search.toLowerCase())
@@ -62,15 +58,11 @@ class SearchPage extends React.Component{
                         <div >
                                 {
                                     searchQuestions.map((question, i )=> (
-                                        // <div className="questions-show" key={i}>
-                                        //     {question.title} 
-                                        // </div>
                                         <div className="questions-show" key={i} >
                                             <br/>
                                             <br/>
                                             <div className="float-child">
                                             <button  className="button-link" value={this.state.body}
-                                            //    onClick={() => sayHello('James')}
                                                 onClick={() => this.openQuestion(question.id)}> {question.title}
                                             </button>
                                             </div>
@@ -79,7 +71,6 @@ class SearchPage extends React.Component{
                                                 <br/>
                                                 {question.created_at}
                                             </div>
-                                            {/* {question.title} */}
                                             <br/>
                                             <br/>
                                    

@@ -4,7 +4,6 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // username: '',
             email: '',
             password: '',
             errors: []
@@ -70,7 +69,6 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-            {/* <div className="login-form-errors">{this.handleErrors()} </div> */}
                 <h2 className="login">Log In!</h2>
             <div className='container'>
                 <form>
@@ -92,7 +90,6 @@ class Login extends React.Component {
                     </label>
                     <button onClick={this.handleSubmit}>Log in</button>
 
-                    {/* 0 */}
                 </form>
                 <div className="login-form-errors">{this.handleErrors()} </div>
             </div>

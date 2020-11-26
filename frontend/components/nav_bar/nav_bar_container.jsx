@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom'
 import NavBar from './nav_bar';
 
 
-// import { login } from '../../actions/session_action';
 import { logout, login } from '../../actions/session_action';
 
 const mapStateToProps = state => ({

@@ -88,49 +88,26 @@ class ShowPage extends React.Component {
         e.preventDefault();
         this.props.history.push('/answerPage');
     }
-    // componentWillUnmount() { this.props.clearSessionErrors() }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     //  this.props.showQuestion(this.props.match.params.id)        
-
-    //     if (prevProps.match.params.id !== this.props.match.params.id){
-    //         let id = Number(this.props.match.params.id);
-    //         this.setState({id: id});
-    //     }
-    //     // console.log("state.id from update", this.state.id);
-    //     if(prevProps.questions.currentQuestion !== this.props.questions.currentQuestion){
-    //         // console.log("component did update")
-    //         let {currentQuestion} = this.props.questions;
-    //         this.setState({currentQuestion: currentQuestion});
-    //     }
-
-   
-    // }
+    
     componentDidMount() { 
         this.props.fetchVotes()
             .then(() => this.setState({votes: this.props.votes.arr.votes}))
             .then(() => this.props.showQuestion(this.props.match.params.id))
             .then(() =>this.setState({targetAnswer: this.props.questions.currentQuestion.answers, targetQuestion: this.props.questions.currentQuestion.question }))
         
-        // this.props.fetchVotes() 
-        //     .then(() => this.setState({votes: this.props.entities.votes.arr.votes}))
-        //     .then(() => console.log("this.props", this.state))
+       
     }
     
   
 
     render() {
-        // debugger
-        // const answers = this.props.entities.questions.currentQuestion.answers
+      
         const voteCounts = {}
-        // for( let i = 0; i < answers.length; i++){
-        //     answersVotes.push(this.props.fetchAnswer(answers[i].id))
-        // }
+       
         
         let {targetAnswer, targetQuestion} = this.state;
         
         
-        // console.log("currentQuestion,", currentQuestion)
         if(targetAnswer){
 
             for (let i = 0; i < this.state.votes.length; i++){
@@ -140,12 +117,8 @@ class ShowPage extends React.Component {
                         voteCounts[this.state.votes[i].answer_id].push(this.state.votes[i])
                     }
             }
+             
                     
-            //  this.setState({voteAnalytics: voteCounts}) 
-            //  this.setState({currentQuestion: currentQuestion});      
-                    
-            console.log("vote Counts", voteCounts)
-            // console.log("this.props.votes in render", this.props.votes.arr.votes)
             return (
                 <div>
                     <div className="sidenav">
@@ -175,18 +148,14 @@ class ShowPage extends React.Component {
                         </div>
                         
                    <h2 className="question-h2">{targetAnswer.length} Answers</h2>  
-                   {/* <hr className="answers-show"/> */}
                     {   targetAnswer.map((answer, i) => {
                             return (
                                 <div className="questions-show" key={i} >
                                     <div className="float-child-left-favicon">
                                     <button onClick={() => this.upVote(answer.id)} className="fav-btn"><i className="fas fa-caret-up"></i></button>
-                                    {/* <i onClick={this.upVote(answer.id)} className="fas fa-caret-up"></i> */}
                                     <br/>
                                     {voteCounts[answer.id] === undefined ? 0 : voteCounts[answer.id].length}
                                     <br/>
-                                    {/* { for (let i = 0; i < voteAnalytics[answerId].length; i++){
-                                                if (voteAnalytics[answerId][i].author_id === this.state.currentUser){}}} */}
                                     <button onClick={() => this.downVote(answer.id)} className="fav-btn"><i className="fas fa-caret-down"></i></button>
                                     </div>
                                     <div className="float-child-favicon">
@@ -195,8 +164,6 @@ class ShowPage extends React.Component {
                                         <br/>
                                         <br/>
                                         {this.state.currentUser === answer.author_id ?  <button disabled={this.state.currentUser !== answer.author_id} className="update-button" onClick={this.edit}>Edit Your Answer</button> : <br/>}
-                                        {/* <button disabled={this.state.currentUser !== answer.author_id} className="update-button" onClick={this.edit}>Edit Your Answer</button> */}
-                                        {/* <button className="update-button" onClick={this.edit}>Edit Your Answer</button> */}
                                         <br/>
                                     </div>
                                     <div className="float-child-right-favicon">
@@ -208,7 +175,6 @@ class ShowPage extends React.Component {
                             )
                          })
                    }  
-                   {/* <hr className="answers-show"/> */}
                 <div className="answer-form" >
                     <form>
                         <br/>

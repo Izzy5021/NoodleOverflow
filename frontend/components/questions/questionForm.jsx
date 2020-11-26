@@ -16,7 +16,6 @@ class QuestionForm extends React.Component {
     }
 
 
-    // componentWillUnmount() { this.props.clearSessionErrors() }
 
     handleInput(type) {
         return (e) => {
@@ -24,31 +23,7 @@ class QuestionForm extends React.Component {
         };
     }
 
-    // handleErrors() {
-    //     if (this.props.errors === null) {
-    //         return null
-    //     }
-    //     else {
-    //         return (
-    //             <ul>
-    //                 {this.props.errors.map((error, i) => (
-    //                     <li key={`${i}`}>{error}</li>
-    //                 ))}
-    //             </ul>
-    //         )
-    //     }
-    // }
-    // handleSubmit(event) {
-
-    //     event.preventDefault();
-
-
-    //     const question = Object.assign({}, this.state, { author_id: this.props.author_id.id });
-    //     this.props.receiveQuestion(question);
-    //     this.setState({ body: '', title: '' });
-    //     this.props.history.push('/');
-
-    // }
+  
     handleSubmit(e) {
         e.preventDefault();
         console.log("from handleSubmit this.props:", this.props)
@@ -66,8 +41,7 @@ class QuestionForm extends React.Component {
     render() {
         return (
             <div>
-                {/* <div className="login-form-errors">{this.handleErrors()} </div>   */}
-                {/* <span className="fab fa-stack-overflow"></span> */}
+               
                   <div className="sidenav">
                         <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
@@ -96,7 +70,6 @@ class QuestionForm extends React.Component {
                         </label>
                         <button className="update-button" onClick={this.handleSubmit}>Create Question</button>
                     </form>
-                    {/* <div className="login-form-errors">{this.handleErrors()} </div> */}
                 </div>
             </div>
         );

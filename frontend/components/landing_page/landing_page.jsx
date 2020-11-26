@@ -1,5 +1,4 @@
 import React from 'react';
-// import stackoverpic from './stackoverpic.svg';
 
 class Landing extends React.Component {
     constructor(props) {
@@ -12,7 +11,6 @@ class Landing extends React.Component {
     render() {
         const love = '<'
         return (
-            // <div styles={{ backgroundImage: `url(${stackoverpic})` }} className="main-landing"> 
             <div>
             <div className="main-landing">
                 <img className="stackback" src={window.picture}/>
@@ -23,8 +21,6 @@ class Landing extends React.Component {
                             We build products that empower developers and connect them to solutions that enable productivity, growth, and discovery.    
                         </div> 
                         <div className="button-landing">
-                            {/* <button className="git">Github</button>
-                            <button className="indeed">Linkedin</button> */}
                             <a className="angel-list" href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
                             <a className="linkedin" href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         </div>

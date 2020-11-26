@@ -54,7 +54,6 @@ class Navbar extends React.Component {
                     <form className="nav-logged-2" onChange={this.handleSubmit}>
                         <input className="search-bar" placeholder="Search Questions" value={this.state.search} onChange={this.handleUpdate} type="text" onMouseLeave={this.toggleSearchClick}/>
                     </form> 
-                    {/* <button className="nav-right" >log out</button> */}
                         <a onClick={() => this.props.logout().then(() => this.props.history.push('/'))} className="nav-right">Log out</a>
                     </div>
                 </div>

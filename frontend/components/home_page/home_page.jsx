@@ -27,9 +27,7 @@ class HomePage extends React.Component {
 
     render() {
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
-        console.log("questions from render", questions)
         if( questions.length !==0 ){
-            console.log("get in there...:", questions[1].title)
         
         
             return (
@@ -51,7 +49,6 @@ class HomePage extends React.Component {
                                         <br/>
                                         <div className="float-child">
                                         <button  className="button-link" value={this.state.body}
-                                        //    onClick={() => sayHello('James')}
                                             onClick={() => this.openQuestion(question.id)}> {question.title}
                                         </button>
                                         </div>
@@ -60,7 +57,6 @@ class HomePage extends React.Component {
                                             <br/>
                                             {question.created_at}
                                         </div>
-                                        {/* {question.title} */}
                                         <br/>
                                         <br/>
                                    

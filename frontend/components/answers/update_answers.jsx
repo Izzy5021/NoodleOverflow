@@ -14,8 +14,7 @@ class UpdateAnswer extends React.Component {
         this.askQuestion = this.askQuestion.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
-        console.log("CONSTRUCTOR this.state:",this.state)
-        console.log("constructror this.props", this.props)
+       
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -25,15 +24,11 @@ class UpdateAnswer extends React.Component {
             this.setState({id: id});
             console.log("im in the comp did update id is", id)
         }
-        // console.log("state.id from update", this.state.id);
         if(prevProps.questions.currentQuestion !== this.props.questions.currentQuestion){
-            // console.log("component did update")
             let {currentQuestion} = this.props.questions;
             this.setState({currentQuestion: currentQuestion});
-              console.log("im in the comp did update w no match id is", id)
         }
     }
-    // componentDidMount() {  this.props.showQuestion(this.props.match.params.id)}
     
   
         componentDidMount() { this.props.fetchAnswer(this.props.match.params.id), this.props.fetchQuestions()}
@@ -52,7 +47,6 @@ class UpdateAnswer extends React.Component {
     }
 
      handleSubmit(id) {
-        //  debugger 
         const answer = Object.assign({}, {body: this.state.answerBody}, {author_id: this.props.currentUser.id}, {username: this.props.currentUser.username}, {question_id: this.props.answers.answer.question_id});
         console.log("answer and id", answer, id)
         this.props.updateAnswer(id, answer)
@@ -66,11 +60,7 @@ class UpdateAnswer extends React.Component {
         let answers = this.props.answers.answer ? this.props.answers.answer : [];
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
 
-        console.log("this.props in render", this.props)
-        // let {questions} = this.props; 
         if(questions.length !== 0 && answers.length !== 0){
-            // console.log("questions from render", questions)
-            console.log("get in there...:", this.props)
             let myAnswers = []
             let myQuestions = []
             for ( let i = 0; i < questions.length; i++){
@@ -79,9 +69,7 @@ class UpdateAnswer extends React.Component {
                     myQuestions.push(questions[i]) 
                 }
             }
-            console.log("props", this.props)
-            console.log("myAnswers", myAnswers)
-            console.log("myQuestions", myQuestions)
+           
             const user = this.props.currentUser.username
             return (
                 <div>

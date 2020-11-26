@@ -15,11 +15,8 @@ class AnswerPage extends React.Component {
         this.askQuestion = this.askQuestion.bind(this);
         this.eliminateAnswer = this.eliminateAnswer.bind(this);
         this.targetAnswer = this.targetAnswer.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.openAnswer = this.openAnswer.bind(this);
-        console.log("CONSTRUCTOR this.state:",this.state)
-        // console.log("constructror this.props", this.props)
     }
 
 
@@ -65,11 +62,7 @@ class AnswerPage extends React.Component {
         let answers = this.props.answers.arr ? this.props.answers.arr : [];
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
 
-        console.log("questions", questions)
-        // let {questions} = this.props; 
         if( answers.length !==0 && questions.length !== 0 ){
-            // console.log("questions from render", questions)
-            console.log("get in there...:", this.props.currentUser.id)
             let myAnswers = []
             let myQuestions = []
             for ( let i = 0; i < answers.length; i++){
@@ -84,9 +77,7 @@ class AnswerPage extends React.Component {
                     
                 }
             }
-            console.log("props", this.props)
-            console.log("myAnswers", myAnswers)
-            console.log("myQuestions", myQuestions)
+           
             const user = this.props.currentUser.username
             return (
                 <div>
