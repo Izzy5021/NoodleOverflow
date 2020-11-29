@@ -340,6 +340,7 @@ h1 {
 
 .card-title {
     margin: 2px;
+    /* margin: 39 */
 }
 
 .card-text {
@@ -563,7 +564,7 @@ body {
 
 form {
     margin: 0 auto;
-    transform: translateX(-5%);
+    /* transform: translateX(-5%); */
 }
 .question-form-header {
     margin-left: 50%;
