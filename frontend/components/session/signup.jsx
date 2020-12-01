@@ -48,6 +48,7 @@ class Signup extends React.Component {
                     <form>
                         <label>Username:
                         <input
+                                className="loginsignup-inputs"
                                 type='text'
                                 placeholder="enter username"
                                 value={this.state.username}
@@ -56,6 +57,7 @@ class Signup extends React.Component {
                         </label>
                         <label>Email:
                         <input
+                                className="loginsignup-inputs"
                                 type='text'
                                 placeholder="enter email"
                                 value={this.state.email}
@@ -65,12 +67,13 @@ class Signup extends React.Component {
                         <label>Password:
                         <input
                                 type='password'
+                                className="loginsignup-inputs"
                                 placeholder="enter password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}
                             />
                         </label>
-                        <button onClick={this.handleSubmit}>Sign Up</button>
+                        <button className="auth-button" onClick={this.handleSubmit}>Sign Up</button>
                     </form>
                     <div className="login-form-errors">{this.handleErrors()} </div>
                 </div>

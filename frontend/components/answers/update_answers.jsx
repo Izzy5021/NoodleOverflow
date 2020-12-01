@@ -80,7 +80,7 @@ class UpdateAnswer extends React.Component {
                         <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
-                    <h2 className="home-h2">Update Answer</h2>
+                    <h2 className="update-h2">Update Answer</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
                       
                                 <div className="questions-show" >
@@ -93,15 +93,17 @@ class UpdateAnswer extends React.Component {
                                     <h3>{user}'s Answer</h3>
                                     <h3>{this.props.answers.answer.body}</h3>
                                     <br/>
-                                    <label>Update Answer
+                                    <label className="update-answer-label">Update Answer
                                      <br/>
                                         <textarea
+                                                className="update-answer-text"
                                                 placeholder="enter here"
                                                 value={this.state.answerBody}
                                                 onChange={this.handleInput('answerBody')}
                                             />
                                     </label>
-                                    <button className="update-button" onClick={() => this.handleSubmit(this.props.answers.answer.id)}>Update Answer</button>
+                                    <br/>
+                                    <button className="update-answer-button" onClick={() => this.handleSubmit(this.props.answers.answer.id)}>Update Answer</button>
                                     <br/>
                                 
                                 </div>

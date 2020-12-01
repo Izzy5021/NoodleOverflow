@@ -28,6 +28,7 @@ class HomePage extends React.Component {
     render() {
         let questions = this.props.questions.arr ? this.props.questions.arr : [];
         if( questions.length !==0 ){
+
         
         
             return (
@@ -78,7 +79,7 @@ class HomePage extends React.Component {
                     </div>
                     <h2 className="home-h2">Top Questions</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    <div>Questions Loading ......</div>
+                    <div className="loading">Questions Loading ......</div>
                 </div>
                 
             )

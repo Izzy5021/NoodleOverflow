@@ -39,7 +39,9 @@ body {
 }
 
 
-
+.loading {
+    margin-left: 50%;
+}
 
 
 .demo {
@@ -69,6 +71,11 @@ body {
     text-decoration: none;
     display: inline-block;
     font-family: arial;
+  
+ }
+
+ .auth-button {
+       margin-left: 37.8%;
  }
 
 .btn-login:hover {
@@ -86,7 +93,7 @@ body {
     color: white;
 }
 
-input[type=text], select, textarea {
+/* input[type=text], select, textarea {
     padding: 11px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -95,7 +102,32 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
     font-family: arial;
+} */
+
+.loginsignup-inputs {
+    width: 100%;
+     padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: arial;
 }
+
+
+/* input[type=password], select, textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: arial;
+} */
 
 .q-label {
      width: 100%;
@@ -109,8 +141,8 @@ input[type=text], select, textarea {
     font-family: arial;
 }
 
-input[type=password], select, textarea {
-    width: 100%;
+.update-answer-text {
+      width: 75%;
     padding: 11px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -121,7 +153,7 @@ input[type=password], select, textarea {
     font-family: arial;
 }
 
- input[type=submit] {
+ /* input[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -129,11 +161,11 @@ input[type=password], select, textarea {
     border-radius: 4px;
     cursor: pointer;
     font-family: arial;
-}
+} */
 
-input[type=submit]:hover {
+/* input[type=submit]:hover {
     background-color: #45a049;
-} 
+}  */
 
 .container {
     border-radius: 5px;
@@ -145,13 +177,15 @@ input[type=submit]:hover {
     margin: auto;
 }
 
+
+
+
 .login, .signup {
     text-align: center;
 }
 
 .nav-loggedin {
     display: flex;
-    /* display: inline-block; */
     justify-content: space-between;
     align-items: center;
 }
@@ -252,8 +286,16 @@ h1 {
 
 .search-bar {
     padding: 11px 30px;
-    transform: translateX(-40%);
-    width: 180%;
+    transform: translateX(-60%);
+    width: 120%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: arial;
 }
 
 
@@ -484,6 +526,11 @@ body {
     display: inline-block;
 }
 
+.update-h2 {
+    margin-left: 50%;
+    display: inline-block;
+}
+
 .search-label {
     margin-left: 40.5%;
     display: inline-block;
@@ -591,6 +638,17 @@ form {
 }
 
 .update-button {
+    background-color: #e1ecf4;
+    color: #39739d;
+    border-color: transparent;
+    border-radius: 4px;
+}
+
+.update-answer-label {
+    color: red
+}
+
+.update-answer-button {
     background-color: #e1ecf4;
     color: #39739d;
     border-color: transparent;

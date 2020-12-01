@@ -63,6 +63,7 @@ class QuestionForm extends React.Component {
                         </label>
                         <label>Body:
                         <textarea
+                                className="q-label"
                                 placeholder="enter question body"
                                 value={this.state.body}
                                 onChange={this.handleInput('body')}

@@ -74,6 +74,7 @@ class Login extends React.Component {
                 <form>
                     <label>Email:
                     <input
+                            className="loginsignup-inputs"
                             type='text'
                             placeholder="enter email"
                             value={this.state.email}
@@ -82,13 +83,14 @@ class Login extends React.Component {
                     </label>
                     <label>Password:
                     <input
+                            className="loginsignup-inputs"
                             type='password'
                             placeholder="enter password"
-                            value={this.state.password}
+                           value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
                     </label>
-                    <button onClick={this.handleSubmit}>Log in</button>
+                    <button className="auth-button" onClick={this.handleSubmit}>Log in</button>
 
                 </form>
                 <div className="login-form-errors">{this.handleErrors()} </div>
