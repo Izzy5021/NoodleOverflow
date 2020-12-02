@@ -172,20 +172,26 @@ class ShowPage extends React.Component {
                                             {answer.created_at}
                                     </div> 
                                 </div>
+                                
+                                
+                                
                             )
                          })
                    }  
                 <div className="answer-form" >
+                    <h2 className="question-h2-b">Your Answer</h2>
                     <form>
                         <br/>
-                        <label className="answer-label">Your Answer
-                        <textarea className="text-area"
+                        {/* <label className="update-answer-label">Your Answer */}
+                        <br/>
+                        <textarea className="update-answer-text"
                                 placeholder="enter here"
                                 value={this.state.answerBody}
                                 onChange={this.handleInput('answerBody')}
                             />
-                        </label>
-                        <button className="update-button" onClick={this.handleSubmit}>Post Your Answer</button>
+                        {/* </label> */}
+                        <br/>
+                        <button className="update-answer-button" onClick={this.handleSubmit}>Post Your Answer</button>
                     </form>
                  </div>
             </div>

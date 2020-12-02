@@ -93,7 +93,7 @@ body {
     color: white;
 }
 
-/* input[type=text], select, textarea {
+.text-area {
     padding: 11px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -102,7 +102,8 @@ body {
     margin-bottom: 16px;
     resize: vertical;
     font-family: arial;
-} */
+    width: 50%;
+}
 
 .loginsignup-inputs {
     width: 100%;
@@ -537,10 +538,14 @@ body {
 }
 
 .question-h2 {
-    margin-left: 41%;
+    margin-left: 42%;
     display: inline-block;
 }
 
+.question-h2-b {
+    margin-left: 27%;
+    display: inline-block;
+}
 .answers-h2 {
      margin-left: 50%;
     display: inline-block;
@@ -552,14 +557,17 @@ body {
     border-bottom: 1px solid #6f6b6b63;
     margin-left: 160px;
     padding-bottom: 8%;
-
+    margin-bottom: 4%;
+    margin-top: 1%;
+    /* max-width: fit-content; */
 }
 
 .float-child {
-     width: 75%;
+     width: 64%;
     float: left;
     padding: 20px;
     border: 2px ;
+    padding-left: 7%;
 }
 
 
@@ -573,25 +581,26 @@ body {
 
 
 .float-child-left-favicon {
+    clear: left; 
      width: 10%;
     float: left;
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
     border: 2px ;
 }
 
 .float-child-favicon {
-     width: 50%;
+     width: 60%;
     float: left;
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
     border: 2px ;
 }
 
 .float-child-right-favicon {
      width: 15%;
     float: left;
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
     border: 2px ;
-    font-size: small;
+    font-size: medium;
 }
 .loading {
     margin-left: 50%;

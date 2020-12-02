@@ -121,7 +121,7 @@ class UpdateAnswer extends React.Component {
                     </div>
                     <h2 className="home-h2">Top Questions</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    <div>Questions Loading ......</div>
+                    <div className="loading">Questions Loading ......</div>
                 </div>
                 
             )
