@@ -8,7 +8,6 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
         author_id: state.session.currentUserId,
-        username: state.entities.users[state.session.currentUserId].username
     });
 
 export default connect(mapStateToProps, mapDispatchToProps)(questionForm);

@@ -119,15 +119,15 @@ class AnswerPage extends React.Component {
             return(
                 <div>
                     <div className="sidenav">
-                        <a href="#about">About</a>
+                        <a href="#/homePage">Home</a>
                         <a href="https://www.linkedin.com/in/israel-gonzalez-372b2aba/">LinkedIn</a>
                         <a href="https://angel.co/u/israel-gonzalez-5">Angelist</a>
-                        <a href="#/newQuestion">My Answers</a>
+                        <a href="#/answerPage">My Answers</a>
                         <a href="#/newQuestion">New Question</a>
                     </div>
                     <h2 className="home-h2">Top Questions</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    <div>Questions Loading ......</div>
+                    <div className="loading">Questions Loading ......</div>
                 </div>
                 
             )
