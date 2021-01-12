@@ -127,7 +127,7 @@ class AnswerPage extends React.Component {
                     </div>
                     <h2 className="home-h2">Top Questions</h2>
                     <button className="askQuestion" onClick={this.askQuestion}>Ask Question</button>
-                    <div className="loading">Questions Loading ......</div>
+                    <div className="loading">You have not answered any questions yet</div>
                 </div>
                 
             )
