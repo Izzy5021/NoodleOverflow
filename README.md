@@ -16,6 +16,6 @@ Technologies Used
 
 * Post question
 * Create/Read/Update/Delete answer to a question
-* Upvote/Downvote answers 
+* Upvote answers 
 * Search for questions
 
