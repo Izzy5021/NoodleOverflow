@@ -1,9 +1,11 @@
 # README
 
-# Code Overflow
-Code Overflow is a single page application that allows developers to form a community in which users can post and respond to any question pertaining to code. Using upvotes and downvotes you can filter through answers and find solutions to the newest technologies or any other coding question. 
+# Noodle Overflow
 
-[Code Overflow](https://noodle-overflow.herokuapp.com/#/
+![Noodle Overflow](https://live.staticflickr.com/65535/50851538141_d17003e9c1_o_d.png)
+Noodle Overflow is a single page application that allows developers to form a community in which users can post and respond to any question pertaining to code. Using upvotes and downvotes you can filter through answers and find solutions to the newest technologies or any other coding question. 
+
+[Noodle Overflow](https://noodle-overflow.herokuapp.com/#/
 
 Technologies Used
 
@@ -12,10 +14,11 @@ Technologies Used
 * Redux (version 4.0.5)
 
 
-## Future features
+## Features
 
 * Post question
+* Answer question 
 * Create/Read/Update/Delete answer to a question
-* Upvote/Downvote answers 
+* Upvote answers 
 * Search for questions
 
